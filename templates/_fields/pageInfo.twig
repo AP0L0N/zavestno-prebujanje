@@ -1,0 +1,27 @@
+
+{% set page = entry %}
+
+{% if page and page.pageInfo %}
+
+    <article class="single-blog">
+
+        {% if page.pageInfo.image %}
+            <div class="post-thumb">
+                <a href="{{ page.url }}">
+                    <img src="{{ page.pageInfo.image.one().url }}" alt="Slika {{ page.pageInfo.blogTitle }}">
+                </a>
+            </div>
+        {% endif %}
+
+        <div class="post-content">
+            <div class="entry-header text-center text-uppercase">
+                <h2><a href="{{ page.url }}">{{ page.pageInfo.naslov }}</a></h2>
+            </div>
+            <div class="entry-content">
+                <p>{{ page.pageInfo.besedilo | raw }}</p>
+            </div>
+        </div>
+
+    </article>
+
+{% endif %}

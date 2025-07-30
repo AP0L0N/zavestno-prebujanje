@@ -1,0 +1,23 @@
+{% extends '_layouts/site-content' %}
+
+{# If you need to exclude a field from the loops, add it's handle to the excludes array #}
+{% set excludes = ['metadataAndSeo'] %}
+
+{% block content %}
+
+    <section class="page" id="{{ entry.type.handle }}">
+
+        <div class="archive-header text-center">
+            <div class="archive-title"><span class="archive-name">{{ "Seznam prispevkov" | t }}</span>
+            </div>
+        </div>
+
+        {% for index, blog in craft.entries().section("prispevki").orderBy("postDate desc").all() %}
+
+            {% include "_fields/_blogInfoThumbnail2" %}
+
+        {% endfor %}
+
+    </section>
+
+{% endblock %}

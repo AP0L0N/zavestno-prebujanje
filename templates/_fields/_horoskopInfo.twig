@@ -1,0 +1,167 @@
+
+{% if horoskop and horoskop.horoskopInfo %}
+
+    <article class="single-blog">
+
+        <div class="post-content">
+
+            <div class="entry-header text-center text-uppercase">
+                <h2>{{ horoskop.title }}</h2>
+                {% if horoskop.horoskopInfo.opis is not empty %}
+                    <p>
+                        {{ horoskop.horoskopInfo.opis }}
+                    </p>
+                {% endif %}
+            </div>
+
+            <div class="entry-content">
+
+                <div class="zodiac-entry">
+
+                    <img src="/assets/images/h-oven.png" class="img-fluid float-left mr-2" alt="Slika horoskopa - Oven">
+                    <div>
+                        <h5 class="mb-2 d-block text-large">Oven</h5>
+                        {{ horoskop.horoskopInfo.opisOven }}
+                    </div>
+
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="zodiac-entry">
+
+                    <img src="/assets/images/h-bik.png" class="img-fluid float-left mr-2" alt="Slika horoskopa - Bik">
+                    <div>
+                        <h5 class="mb-2 d-block text-large">Bik</h5>
+                        {{ horoskop.horoskopInfo.opisBik }}
+                    </div>
+
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="zodiac-entry">
+
+                    <img src="/assets/images/h-dvojcka.png" class="img-fluid float-left mr-2" alt="Slika horoskopa - Dvojčka">
+                    <div>
+                        <h5 class="mb-2 d-block text-large">Dvojčka</h5>
+                        {{ horoskop.horoskopInfo.opisDvojcka }}
+                    </div>
+
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="zodiac-entry">
+
+                    <img src="/assets/images/h-rak.png" class="img-fluid float-left mr-2" alt="Slika horoskopa - Rak">
+                    <div>
+                        <h5 class="mb-2 d-block text-large">Rak</h5>
+                        {{ horoskop.horoskopInfo.opisRak }}
+                    </div>
+
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="zodiac-entry">
+
+                    <img src="/assets/images/h-lev.png" class="img-fluid float-left mr-2" alt="Slika horoskopa - Lev">
+                    <div>
+                        <h5 class="mb-2 d-block text-large">Lev</h5>
+                        {{ horoskop.horoskopInfo.opisLev }}
+                    </div>
+
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="zodiac-entry">
+
+                    <img src="/assets/images/h-devica.png" class="img-fluid float-left mr-2" alt="Slika horoskopa - Devica">
+                    <div>
+                        <h5 class="mb-2 d-block text-large">Devica</h5>
+                        {{ horoskop.horoskopInfo.opisDevica }}
+                    </div>
+
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="zodiac-entry">
+
+                    <img src="/assets/images/h-tehtnica.png" class="img-fluid float-left mr-2" alt="Slika horoskopa - Tehtnica">
+                    <div>
+                        <h5 class="mb-2 d-block text-large">Tehtnica</h5>
+                        {{ horoskop.horoskopInfo.opisTehtnica }}
+                    </div>
+
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="zodiac-entry">
+
+                    <img src="/assets/images/h-skorpijon.png" class="img-fluid float-left mr-2" alt="Slika horoskopa - Škorpijon">
+                    <div>
+                        <h5 class="mb-2 d-block text-large">Škorpijon</h5>
+                        {{ horoskop.horoskopInfo.opisSkorpijon }}
+                    </div>
+
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="zodiac-entry">
+
+                    <img src="/assets/images/h-strelec.png" class="img-fluid float-left mr-2" alt="Slika horoskopa - Strelec">
+                    <div>
+                        <h5 class="mb-2 d-block text-large">Strelec</h5>
+                        {{ horoskop.horoskopInfo.opisStrelec }}
+                    </div>
+
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="zodiac-entry">
+
+                    <img src="/assets/images/h-kozorog.png" class="img-fluid float-left mr-2" alt="Slika horoskopa - Kozorog">
+                    <div>
+                        <h5 class="mb-2 d-block text-large">Kozorog</h5>
+                        {{ horoskop.horoskopInfo.opisKozorog }}
+                    </div>
+
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="zodiac-entry">
+
+                    <img src="/assets/images/h-vodnar.png" class="img-fluid float-left mr-2" alt="Slika horoskopa - Vodnar">
+                    <div>
+                        <h5 class="mb-2 d-block text-large">Vodnar</h5>
+                        {{ horoskop.horoskopInfo.opisVodnar }}
+                    </div>
+
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="zodiac-entry">
+
+                    <img src="/assets/images/h-ribi.png" class="img-fluid float-left mr-2" alt="Slika horoskopa - Ribi">
+                    <div>
+                        <h5 class="mb-2 d-block text-large">Ribi</h5>
+                        {{ horoskop.horoskopInfo.opisRibi }}
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </article>
+
+{% endif %}

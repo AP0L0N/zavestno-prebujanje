@@ -1,0 +1,32 @@
+header {
+
+	background: #f8f9fa!important;
+	border-bottom: thin solid #efefef;
+	box-shadow: 0 3px 10px #e8e8e8;
+	margin-bottom: 40px;
+
+	h1 {
+
+		text-transform: uppercase;
+		font-weight: 300;
+		color: #5a5a5a;
+		margin: 20px 0;
+	}
+
+	.nav-item {
+
+		line-height: 100px;
+		margin: 0 5px;
+
+		a {
+
+			display: inline;
+
+			img {
+
+				max-width: 150px;
+				margin-bottom: 10px;
+			}
+		}
+	}
+}

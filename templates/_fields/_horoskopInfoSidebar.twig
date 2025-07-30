@@ -1,0 +1,25 @@
+
+{% if horoskop and horoskop.horoskopInfo %}
+
+    <aside class="widget about-me-widget single-blog text-center">
+        <div class="about-me-content">
+            <div class="about-me-img">
+
+                <img src="/assets/images/zodiac.jpg" alt="Slika horoskopa" class="img-me img-circle">
+                <h2 class="text-uppercase">{{ horoskop.title }}</h2>
+
+                {% if horoskop.horoskopInfo.opis is not empty %}
+                    <p class="mb-3">
+                        {{ horoskop.horoskopInfo.opis }}
+                    </p>
+                {% endif %}
+
+                <div class="continue-reading text-center text-uppercase">
+                    <a href="{{ horoskop.url }}">{{ "Preberite horoskop" | t }}</a>
+                </div>
+
+            </div>
+        </div>
+    </aside>
+
+{% endif %}

@@ -1,0 +1,59 @@
+<header>
+
+    <div class="container-fluid">
+
+        <div class="row">
+
+            <div class="col-12 text-center">
+
+                <h1><a href="/">Zavestno prebujanje</a></h1>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-12">
+
+                <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample10" aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample10">
+                        <ul class="navbar-nav">
+
+                            {% for node in craft.navigation.nodes().handle('leftNav').level(1).all() %}
+                                <li class="nav-item {{ (node.active == 1 ? "active" : "") }}">
+
+                                    <a class="nav-link" href="{{ node.url }}">{{ node.title }}</a>
+
+                                </li>
+                            {% endfor %}
+
+                            <li class="nav-item">
+                                <a href="/">
+                                    <img src="/assets/images/logo.png" class="img-fluid" alt="Logo Zavestno prebujanje">
+                                </a>
+                            </li>
+
+                            {% for node in craft.navigation.nodes().handle('rightNav').level(1).all() %}
+                                <li class="nav-item {{ (node.active == 1 ? "active" : "") }}">
+
+                                    <a class="nav-link" href="{{ node.url }}">{{ node.title }}</a>
+
+                                </li>
+                            {% endfor %}
+
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+</header>

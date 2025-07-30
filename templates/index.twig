@@ -1,0 +1,38 @@
+{% extends '_layouts/site-content' %}
+
+{# If you need to exclude a field from the loops, add it's handle to the excludes array #}
+{% set excludes = ['metadataAndSeo', 'blogSeo'] %}
+
+{% block content %}
+    <section class="page" id="{{ entry.type.handle }}">
+
+        <!-- Main section -->
+        <section class="main-section">
+            <div class="cb">
+
+                {# loop through the fields in the entries fieldLayout Model #}
+                {% for field in entry.getFieldLayout().getFields() %}
+                    {% if field.handle not in excludes %}
+                        {# include the fields twig template  #}
+                        {% include '_fields/' ~ field.handle %}
+                    {% endif %}
+                {% endfor %}
+
+                {# structure entry types have to loop through the fields in the entries fieldLayout Model #}
+                {% set children = entry.children() %}
+                {% for entry in children.all() %}
+
+                    {% for field in entry.getFieldLayout().getFields() %}
+                        {% if field.handle not in excludes %}
+                            {# include the fields twig template  #}
+                            {% include '_fields/' ~ field.handle %}
+                        {% endif %}
+                    {% endfor %}
+
+                {% endfor %}
+
+            </div>
+        </section>
+    </section>
+
+{% endblock %}

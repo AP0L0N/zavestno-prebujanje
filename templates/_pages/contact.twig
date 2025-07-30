@@ -1,0 +1,36 @@
+{% extends '_layouts/site-content' %}
+
+{# If you need to exclude a field from the loops, add it's handle to the excludes array #}
+{% set excludes = ['metadataAndSeo'] %}
+
+{% block content %}
+    <section class="page" id="{{ entry.type.handle }}">
+
+        <article class="single-blog contact-us">
+
+            <div class="post-content">
+                <div class="entry-header text-center text-uppercase">
+
+                    <h2 class="text-left"><a href="javascript:">{{ "Kontaktirajte nas" | t }}</a></h2>
+                </div>
+
+                <div class="entry-content">
+                    <p>
+
+                    </p>
+
+                    <div class="address">
+                        <h4 class="text-uppercase">{{ "Kontaktne informacije" | t }}</h4>
+                        <p><i class="fal fa-home mr-2"></i> {{ mainContact.contactInfo.address }}</p>
+                        <p><i class="fal fa-phone mr-2"></i> {{ mainContact.contactInfo.phoneNumber }}</p>
+                        <a href="mailto:{{ mainContact.contactInfo.email }}"><i class="fal fa-envelope mr-2"></i> {{ mainContact.contactInfo.email }}</a>
+                    </div>
+
+                </div>
+
+            </div>
+        </article>
+
+    </section>
+
+{% endblock %}

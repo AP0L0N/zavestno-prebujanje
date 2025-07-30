@@ -1,0 +1,52 @@
+
+<div class="normal-modal modal d-none" id="newsletterModal">
+
+    <div class="content">
+
+        <a href="javascript:" onclick="closeModal('newsletterModal', true, 3)" class="close-button"><i class="far fa-times"></i></a>
+
+        <section class="newsletter-subscription-box wow bounceInDown">
+            <div class="row mb-3">
+                <div class="col-3 d-none d-sm-block">
+                    <img src="/assets/img/newsletter.png" class="main-image img-fluid" alt="Image of user browsing mobile phone">
+                </div>
+                <div class="col-12 col-md-9">
+                    <h4>{{ "Ostanite z nami!" | t }}</h4>
+                    <p>{{ "Ostanite v stiku z nami – prijavite se na naše e-novice in bodite redno obveščeni o aktualnem dogajanju in novostih." | t }}</p>
+                    <a href="#" class="btn btn-primary btn-lg"><img src="/assets/img/subscribe-to-news.png" class="img-fluid d-none d-lg-inline-block" alt="Newsletter subscription icon"> &nbsp;{{ "Prijavite se na e-novice" | t }} &nbsp;<i class="far fa-angle-right"></i></a>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<div class="normal-modal modal d-none" id="cookieConsentModal">
+
+    <div class="content">
+
+        <a href="javascript:" onclick="closeModal('cookieConsentModal')" class="close-button"><i class="far fa-times"></i></a>
+
+        <div class="text-center">
+
+            <img alt="ICT logo" src="#" class="img-fluid mb-4">
+
+            <h3 class="text-primary-dark">{{ "Prosimo, potrdite piškotke" | t }}</h3>
+            <p class="mb-4">
+                {{ "Na spletnih straneh zavestnoprebujanje.si uporabljamo z namenom zagotavljanja
+            spletne storitve in funkcionalnosti, ki jih brez njih nebi mogli nuditi,
+            zato vas prosimo, da s spodnjim gumbom potrdite uporabo piškotov na naši spletni strani." | t }}
+            </p>
+
+            <a href="javascript:" onclick="confirmCookies()" class="btn btn-primary">{{ "Strinjam se" | t }} &nbsp;<i class="far fa-angle-right"></i></a>
+            <div class="clearfix mb-3"></div>
+            {% for item in craft.entries().section("legal").all() %}
+                {% if item.slug == "pogoji-uporabe" %}
+                    <a href="{{ item.url }}">{{ "Več informacij" | t }}</a>
+                {% endif %}
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</div>

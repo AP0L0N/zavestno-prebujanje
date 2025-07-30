@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+
+    <!-- Document Settings -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+    {% hook "seo" %}
+
+    {% set env = getenv('ENVIRONMENT') %}
+
+    {% if env == 'dev' %}
+        {% set revision = random() %}
+    {% else %}
+        {% set revision = "1.1.4" %}
+    {% endif %}
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,700i%7cOswald:300,400,500,600,700%7cPlayfair+Display:400,400i,700,700i" rel="stylesheet">
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/slick-theme.css">
+    <link rel="stylesheet" href="assets/css/slick.css">
+    <link rel="stylesheet" href="style.css">
+
+    {# Main styles #}
+    <link href="{{ '/assets/css/theme.css?rev=' ~ revision }}" rel="stylesheet" type="text/css" media="all" />
+
+    {# Main JS files #}
+    <script type="text/javascript" src="{{ '/assets/js/head.js?rev=' ~ revision }}"></script>
+
+    <!-- HTML5 shim and Respond.js IE9 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+
+{# Header #}
+{% include '_layouts/site-header' %}
+
+{# Content #}
+<main id="content">
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-sm-8">
+
+                {% block content %} {{ content is defined ? content }} {% endblock %}
+
+            </div>
+
+            <div class="col-sm-4">
+
+                {# Sidebar #}
+                {% include '_layouts/site-sidebar' %}
+
+            </div>
+
+        </div>
+    </div>
+
+</main>
+
+{# Footer #}
+{% include '_layouts/site-footer' %}
+
+{# Modals #}
+{% include '_layouts/site-modals' %}
+
+<div class="scroll-up">
+    <a href="#"><i class="fa fa-angle-up"></i></a>
+</div>
+
+{# Main scripts #}
+<script type="text/javascript" src="{{ '/assets/js/body.js?rev=' ~ revision }}" async></script>
+
+</body>
+</html>
+

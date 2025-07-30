@@ -1,0 +1,17 @@
+
+{% if entry and entry.blogInfo or entry.horoskopInfo %}
+
+    <aside class="widget about-me-widget  text-center author-bg">
+        <div class="about-me-content">
+            <div class="about-me-img">
+                <img src="{{ mainAuthor.authorInfo.profilePicture.one().url }}" alt="Sliak osebe - {{ mainAuthor.authorInfo.authorName }}" class="img-me img-circle">
+                <h2 class="text-uppercase">{{ mainAuthor.authorInfo.authorName }}</h2>
+
+                <p>{{ mainAuthor.authorInfo.description|striptags|length > 300 ? mainAuthor.authorInfo.description|striptags|slice(0, 300) ~ '...' : mainAuthor.authorInfo.description | striptags }}</p>
+
+                <a href="/about" class="text-">{{ "Več o meni" }} <i class="fas fa-angle-right ml-2"></i></a>
+            </div>
+        </div>
+    </aside>
+
+{% endif %}

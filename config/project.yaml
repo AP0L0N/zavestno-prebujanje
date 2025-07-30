@@ -1,0 +1,1289 @@
+dateModified: 1568068785
+email:
+  fromEmail: poje.tilen@gmail.com
+  fromName: 'Zavestno prebujanje'
+  transportType: craft\mail\transportadapters\Sendmail
+fieldGroups:
+  26f48b80-b971-4535-8bc5-e5add1370b09:
+    name: Horoskop
+  86398b5a-bde2-45ba-b078-2c2569c3bb0d:
+    name: Blog
+  8b413b3b-270d-4fdf-b737-1a12054e063c:
+    name: Common
+fields:
+  0935c81a-6697-425c-befe-6db32133cf88:
+    name: 'Contact info'
+    handle: contactInfo
+    instructions: ''
+    searchable: true
+    translationMethod: site
+    translationKeyFormat: null
+    type: verbb\supertable\fields\SuperTableField
+    settings:
+      minRows: ''
+      maxRows: ''
+      contentTable: '{{%stc_contactinfo}}'
+      propagationMethod: all
+      staticField: '1'
+      fieldLayout: matrix
+      selectionLabel: ''
+    contentColumnType: string
+    fieldGroup: 8b413b3b-270d-4fdf-b737-1a12054e063c
+  59021a1a-cfde-47f2-8ccd-2f87d668d843:
+    name: 'Author info'
+    handle: authorInfo
+    instructions: ''
+    searchable: true
+    translationMethod: site
+    translationKeyFormat: null
+    type: verbb\supertable\fields\SuperTableField
+    settings:
+      minRows: ''
+      maxRows: ''
+      contentTable: '{{%stc_authorinfo}}'
+      propagationMethod: all
+      staticField: '1'
+      fieldLayout: matrix
+      selectionLabel: ''
+    contentColumnType: string
+    fieldGroup: 8b413b3b-270d-4fdf-b737-1a12054e063c
+  768c0010-918e-450a-af65-49a69c0e50b2:
+    name: 'Page info'
+    handle: pageInfo
+    instructions: ''
+    searchable: true
+    translationMethod: site
+    translationKeyFormat: null
+    type: verbb\supertable\fields\SuperTableField
+    settings:
+      minRows: ''
+      maxRows: ''
+      contentTable: '{{%stc_pageinfo}}'
+      propagationMethod: all
+      staticField: '1'
+      fieldLayout: matrix
+      selectionLabel: ''
+    contentColumnType: string
+    fieldGroup: 8b413b3b-270d-4fdf-b737-1a12054e063c
+  bdf1e9ad-955f-43b1-8c55-7897bff61fda:
+    name: 'List of latest blogs'
+    handle: listOfLatestBlogs
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\PlainText
+    settings:
+      placeholder: ''
+      code: ''
+      multiline: ''
+      initialRows: '4'
+      charLimit: ''
+      columnType: text
+    contentColumnType: text
+    fieldGroup: 86398b5a-bde2-45ba-b078-2c2569c3bb0d
+  d034d755-6241-4073-b724-8be3f7beb4a2:
+    name: 'Blog Info'
+    handle: blogInfo
+    instructions: ''
+    searchable: true
+    translationMethod: site
+    translationKeyFormat: null
+    type: verbb\supertable\fields\SuperTableField
+    settings:
+      minRows: ''
+      maxRows: ''
+      contentTable: '{{%stc_bloginfo}}'
+      propagationMethod: all
+      staticField: '1'
+      columns:
+        5:
+          width: ''
+        2:
+          width: ''
+        4:
+          width: ''
+        7:
+          width: ''
+      fieldLayout: matrix
+      selectionLabel: ''
+    contentColumnType: string
+    fieldGroup: 86398b5a-bde2-45ba-b078-2c2569c3bb0d
+  e3066447-9c56-45d7-8ca9-f245e8578127:
+    name: 'Blog SEO'
+    handle: blogSeo
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: ether\seo\fields\SeoField
+    settings:
+      titleSuffix: null
+      suffixAsPrefix: null
+      title:
+        -
+          key: '1'
+          locked: '0'
+          template: '{title}'
+        -
+          key: '2'
+          locked: '1'
+          template: ' - {{ siteName }}'
+      description: ''
+      socialImage: ''
+      hideSocial: ''
+      robots:
+        - ''
+        - ''
+        - ''
+        - ''
+        - ''
+        - ''
+    contentColumnType: text
+    fieldGroup: 86398b5a-bde2-45ba-b078-2c2569c3bb0d
+  e95ac300-682f-405d-8cc8-c9dc76f99104:
+    name: 'Horoskop Info'
+    handle: horoskopInfo
+    instructions: ''
+    searchable: true
+    translationMethod: site
+    translationKeyFormat: null
+    type: verbb\supertable\fields\SuperTableField
+    settings:
+      minRows: ''
+      maxRows: ''
+      contentTable: '{{%stc_horoskopinfo}}'
+      propagationMethod: all
+      staticField: '1'
+      fieldLayout: matrix
+      selectionLabel: ''
+    contentColumnType: string
+    fieldGroup: 26f48b80-b971-4535-8bc5-e5add1370b09
+globalSets:
+  96c103bf-b272-419b-ac2a-d9178a5ca852:
+    name: 'Opis strani'
+    handle: globalInfo
+    fieldLayouts:
+      0b64f469-df16-40fa-9854-220839c6ea4e:
+        tabs:
+          -
+            name: 'Tab 1'
+            sortOrder: 1
+            fields:
+              768c0010-918e-450a-af65-49a69c0e50b2:
+                required: false
+                sortOrder: 1
+  ac308fbe-1518-4821-a65d-10af56a498a1:
+    name: Kontakt
+    handle: mainContact
+    fieldLayouts:
+      d6d292a9-3f87-43d3-b1e3-1d2728812acd:
+        tabs:
+          -
+            name: 'Tab 1'
+            sortOrder: 1
+            fields:
+              0935c81a-6697-425c-befe-6db32133cf88:
+                required: false
+                sortOrder: 1
+  f0acafcf-71de-4de0-b542-c502c5812349:
+    name: 'Glavna urednica'
+    handle: mainAuthor
+    fieldLayouts:
+      93742794-8e5a-4481-b2a8-f411c368c0e7:
+        tabs:
+          -
+            name: 'Tab 1'
+            sortOrder: 1
+            fields:
+              59021a1a-cfde-47f2-8ccd-2f87d668d843:
+                required: false
+                sortOrder: 1
+navigation:
+  navs:
+    0dc7a820-2a46-4ee4-a7e6-2f49f6a33e13:
+      name: 'Navigacija desno'
+      handle: rightNav
+      structure:
+        uid: fadba962-36c5-4f67-bd94-6681b60dad2a
+        maxLevels: '1'
+      instructions: ''
+      propagateNodes: false
+      sortOrder: 2
+    66a9d675-b23d-467a-b0a2-a47b688573f5:
+      name: 'Navigacija levo'
+      handle: leftNav
+      structure:
+        uid: 0d489ecb-f5aa-4731-9166-f667f8f4f9a3
+        maxLevels: '1'
+      instructions: ''
+      propagateNodes: false
+      sortOrder: 1
+plugins:
+  super-table:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.2.0
+  expanded-singles:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  navigation:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.11
+    licenseKey: PD9Y2KGDPCFT34XKIQGEY7LC
+  redactor:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.3.0
+  seo:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.1.0
+    settings:
+      sitemapName: sitemap
+      sitemapLimit: '1000'
+      titleSuffix: null
+      title:
+        -
+          key: '1'
+          locked: '0'
+          template: '{title}'
+        -
+          key: '2'
+          locked: '1'
+          template: ' - {{ siteName }}'
+      description: ''
+      socialImage: ''
+      metaTemplate: _layouts/site-seo.twig
+      robots:
+        - ''
+        - ''
+        - ''
+        - ''
+        - ''
+        - ''
+      robotsTxt: "{# Sitemap URL #}\nSitemap: {{ url(seo.sitemapName ~ '.xml') }}\n\n{# Disallows #}\n{% if craft.app.config.env != 'production' %}\n\n{# Disallow access to everything when NOT in production #}\nUser-agent: *\nDisallow: /\n\n{% else %}\n\n{# Disallow access to cpresources/ when live #}\nUser-agent: *\nDisallow: /cpresources/\n\n{% endif %}"
+      facebookAppId: '416292889014664'
+      twitterHandle: ''
+  sitemap:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.2
+sections:
+  0e7849c7-a150-4a17-9a4c-3331caa88b0c:
+    name: 'Letni horoskop'
+    handle: letniHoroskop
+    type: channel
+    enableVersioning: true
+    propagationMethod: all
+    siteSettings:
+      b595d07a-02d1-48d2-becf-8d8def260287:
+        enabledByDefault: true
+        hasUrls: true
+        uriFormat: 'letni-horoskop/{slug}'
+        template: index
+    entryTypes:
+      eff0d0d1-1219-4bb8-b5da-f62508643fe5:
+        name: 'Letni horoskop'
+        handle: letniHoroskop
+        hasTitleField: false
+        titleLabel: Title
+        titleFormat: 'Letni horoskop za leto {{ horoskopInfo.datumOd | date("Y") }}'
+        sortOrder: 1
+        fieldLayouts:
+          7ba46d53-8b69-46f9-9857-cde0e810adc4:
+            tabs:
+              -
+                name: 'Tab 1'
+                sortOrder: 1
+                fields:
+                  e95ac300-682f-405d-8cc8-c9dc76f99104:
+                    required: false
+                    sortOrder: 1
+              -
+                name: 'Tab 2'
+                sortOrder: 2
+                fields:
+                  e3066447-9c56-45d7-8ca9-f245e8578127:
+                    required: false
+                    sortOrder: 1
+  158f0345-c5c7-4860-b14f-85a90989d48f:
+    name: 'Seznam prispevkov'
+    handle: seznamPrispevkov
+    type: single
+    enableVersioning: true
+    propagationMethod: all
+    siteSettings:
+      b595d07a-02d1-48d2-becf-8d8def260287:
+        enabledByDefault: true
+        hasUrls: true
+        uriFormat: prispevki
+        template: _pages/prispevki
+    entryTypes:
+      e3c13c20-7062-4f94-88ed-e5d3affe15aa:
+        name: 'Seznam prispevkov'
+        handle: seznamPrispevkov
+        hasTitleField: false
+        titleLabel: null
+        titleFormat: '{section.name|raw}'
+        sortOrder: 1
+  444ab345-ee9e-46e5-9bb2-486991716326:
+    name: Horoskop
+    handle: horoskop
+    type: channel
+    enableVersioning: true
+    propagationMethod: all
+    siteSettings:
+      b595d07a-02d1-48d2-becf-8d8def260287:
+        enabledByDefault: true
+        hasUrls: true
+        uriFormat: 'horoskop/{slug}'
+        template: index
+    entryTypes:
+      d33d8ab6-a12e-4833-9837-624e08ffd59b:
+        name: Horoskop
+        handle: horoskop
+        hasTitleField: false
+        titleLabel: Title
+        titleFormat: 'Tedenski horoskop za datum {{ horoskopInfo.datumOd | date("j.n.Y") }} do {{ horoskopInfo.datumDo | date("j.n.Y") }}'
+        sortOrder: 1
+        fieldLayouts:
+          5c560ae8-0507-4bee-9050-f2d5b402f26b:
+            tabs:
+              -
+                name: 'Tab 1'
+                sortOrder: 1
+                fields:
+                  e95ac300-682f-405d-8cc8-c9dc76f99104:
+                    required: false
+                    sortOrder: 1
+              -
+                name: 'Tab 2'
+                sortOrder: 2
+                fields:
+                  e3066447-9c56-45d7-8ca9-f245e8578127:
+                    required: false
+                    sortOrder: 1
+  4842cefa-c726-4565-b6f2-49d6351fe0eb:
+    name: 'Seznam horoskopov'
+    handle: seznamHoroskopov
+    type: single
+    enableVersioning: true
+    propagationMethod: all
+    siteSettings:
+      b595d07a-02d1-48d2-becf-8d8def260287:
+        enabledByDefault: true
+        hasUrls: true
+        uriFormat: horoskop
+        template: _pages/horoskop
+    entryTypes:
+      8ad96e32-0167-4f0e-8aa2-2a37bcabc930:
+        name: 'Seznam horoskopov'
+        handle: seznamHoroskopov
+        hasTitleField: false
+        titleLabel: null
+        titleFormat: '{section.name|raw}'
+        sortOrder: 1
+  763a233d-67e7-4f77-b006-4266e7645279:
+    name: 'Naslovna stran'
+    handle: naslovnaStran
+    type: single
+    enableVersioning: true
+    propagationMethod: all
+    siteSettings:
+      b595d07a-02d1-48d2-becf-8d8def260287:
+        enabledByDefault: true
+        hasUrls: true
+        uriFormat: __home__
+        template: index
+    entryTypes:
+      f8008dc2-e8bc-492e-a340-2ffe18bade13:
+        name: 'Naslovna stran'
+        handle: naslovnaStran
+        hasTitleField: false
+        titleLabel: ''
+        titleFormat: '{section.name|raw}'
+        sortOrder: 1
+        fieldLayouts:
+          4693e1b4-a6e9-458a-8c0e-dea4c42ca0c3:
+            tabs:
+              -
+                name: 'Tab 1'
+                sortOrder: 1
+                fields:
+                  bdf1e9ad-955f-43b1-8c55-7897bff61fda:
+                    required: false
+                    sortOrder: 1
+  c1c6c18f-03e4-49ed-bce1-2caebbe8d93c:
+    name: Kontakt
+    handle: kontakt
+    type: single
+    enableVersioning: true
+    propagationMethod: all
+    siteSettings:
+      b595d07a-02d1-48d2-becf-8d8def260287:
+        enabledByDefault: true
+        hasUrls: true
+        uriFormat: contact
+        template: _pages/contact
+    entryTypes:
+      d653b4bf-816f-4f29-ba60-973017654351:
+        name: Kontakt
+        handle: kontakt
+        hasTitleField: false
+        titleLabel: null
+        titleFormat: '{section.name|raw}'
+        sortOrder: 1
+  ce5ef992-178d-41bf-bbb9-70f1c395909d:
+    name: Prispevki
+    handle: prispevki
+    type: channel
+    enableVersioning: true
+    propagationMethod: all
+    siteSettings:
+      b595d07a-02d1-48d2-becf-8d8def260287:
+        enabledByDefault: true
+        hasUrls: true
+        uriFormat: 'blog/{slug}'
+        template: index
+    entryTypes:
+      ab591140-9548-418f-80a0-0ea3d3a27c7b:
+        name: Prispevki
+        handle: prispevki
+        hasTitleField: false
+        titleLabel: Title
+        titleFormat: '{{ blogInfo.blogTitle }}'
+        sortOrder: 1
+        fieldLayouts:
+          b635262b-b1f9-46b2-80c5-4321f7f08035:
+            tabs:
+              -
+                name: 'Tab 1'
+                sortOrder: 1
+                fields:
+                  d034d755-6241-4073-b724-8be3f7beb4a2:
+                    required: false
+                    sortOrder: 1
+              -
+                name: 'Tab 2'
+                sortOrder: 2
+                fields:
+                  e3066447-9c56-45d7-8ca9-f245e8578127:
+                    required: false
+                    sortOrder: 1
+  d688a196-e695-46f6-bea2-89edbbe3d162:
+    name: 'O meni'
+    handle: oMeni
+    type: single
+    enableVersioning: true
+    propagationMethod: all
+    siteSettings:
+      b595d07a-02d1-48d2-becf-8d8def260287:
+        enabledByDefault: true
+        hasUrls: true
+        uriFormat: about
+        template: _pages/about
+    entryTypes:
+      98d75c4d-846e-4e7f-b329-3052b0a6364e:
+        name: 'O meni'
+        handle: oMeni
+        hasTitleField: true
+        titleLabel: Title
+        titleFormat: null
+        sortOrder: 1
+  eaea2154-279f-49a2-98ca-af90c7f69d2f:
+    name: 'Statične strani'
+    handle: staticneStrani
+    type: channel
+    enableVersioning: true
+    propagationMethod: all
+    siteSettings:
+      b595d07a-02d1-48d2-becf-8d8def260287:
+        enabledByDefault: true
+        hasUrls: true
+        uriFormat: 'info/{slug}'
+        template: index
+    entryTypes:
+      c9c4314c-364c-48c7-b124-f006b29c15a3:
+        name: 'Statične strani'
+        handle: staticneStrani
+        hasTitleField: false
+        titleLabel: Title
+        titleFormat: '{{ pageInfo.naslov }}'
+        sortOrder: 1
+        fieldLayouts:
+          4a902d50-64f7-49e1-8d94-608d3f9ea616:
+            tabs:
+              -
+                name: 'Tab 1'
+                sortOrder: 1
+                fields:
+                  768c0010-918e-450a-af65-49a69c0e50b2:
+                    required: false
+                    sortOrder: 1
+siteGroups:
+  c754bd34-b788-4e3c-b0b7-2fc95e2722a2:
+    name: 'Zavestno prebujanje'
+sites:
+  b595d07a-02d1-48d2-becf-8d8def260287:
+    baseUrl: $DEFAULT_SITE_URL
+    handle: default
+    hasUrls: true
+    language: en-US
+    name: 'Zavestno prebujanje'
+    primary: true
+    siteGroup: c754bd34-b788-4e3c-b0b7-2fc95e2722a2
+    sortOrder: 1
+superTableBlockTypes:
+  35cc7ac2-1b56-49c6-a019-c8db24e44949:
+    field: 768c0010-918e-450a-af65-49a69c0e50b2
+    fields:
+      8c8be8fa-f145-4490-89d2-aa5465825dce:
+        name: Naslov
+        handle: naslov
+        instructions: ''
+        searchable: false
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      ab6079f7-c6a0-4249-be59-c0a427105116:
+        name: Image
+        handle: image
+        instructions: ''
+        searchable: false
+        translationMethod: site
+        translationKeyFormat: null
+        type: craft\fields\Assets
+        settings:
+          useSingleFolder: '1'
+          defaultUploadLocationSource: 'volume:1371adaa-1b39-43ae-81e9-436941ddf73c'
+          defaultUploadLocationSubpath: ''
+          singleUploadLocationSource: 'volume:1371adaa-1b39-43ae-81e9-436941ddf73c'
+          singleUploadLocationSubpath: ''
+          restrictFiles: '1'
+          allowedKinds:
+            - image
+          sources: '*'
+          source: null
+          targetSiteId: null
+          viewMode: large
+          limit: '1'
+          selectionLabel: ''
+          localizeRelations: false
+          validateRelatedElements: ''
+        contentColumnType: string
+        fieldGroup: null
+      d9659cb6-968e-4aea-88a1-3f3078952d43:
+        name: Besedilo
+        handle: besedilo
+        instructions: ''
+        searchable: false
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\redactor\Field
+        settings:
+          redactorConfig: Standard.json
+          purifierConfig: ''
+          cleanupHtml: true
+          removeInlineStyles: '1'
+          removeEmptyTags: '1'
+          removeNbsp: '1'
+          purifyHtml: '1'
+          columnType: text
+          availableVolumes: '*'
+          availableTransforms: '*'
+        contentColumnType: text
+        fieldGroup: null
+    fieldLayouts:
+      0da5b883-e905-4174-8a49-554edde90b1f:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              8c8be8fa-f145-4490-89d2-aa5465825dce:
+                required: true
+                sortOrder: 2
+              ab6079f7-c6a0-4249-be59-c0a427105116:
+                required: false
+                sortOrder: 1
+              d9659cb6-968e-4aea-88a1-3f3078952d43:
+                required: true
+                sortOrder: 3
+  617efee1-3145-4f12-a0e0-2b694765e0aa:
+    field: 0935c81a-6697-425c-befe-6db32133cf88
+    fields:
+      0d5b10cb-ae54-4b66-96be-ce03aadc795d:
+        name: Email
+        handle: email
+        instructions: ''
+        searchable: false
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\Email
+        settings:
+          placeholder: ''
+        contentColumnType: string
+        fieldGroup: null
+      87c75157-2b0a-4085-8d55-057d9397f47d:
+        name: 'Phone number'
+        handle: phoneNumber
+        instructions: ''
+        searchable: false
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      ab9764aa-97a8-48e5-8a9f-d0ffd59f1469:
+        name: Address
+        handle: address
+        instructions: ''
+        searchable: false
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+    fieldLayouts:
+      61b33f8c-0d69-4216-8908-4508b1782626:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              0d5b10cb-ae54-4b66-96be-ce03aadc795d:
+                required: false
+                sortOrder: 3
+              87c75157-2b0a-4085-8d55-057d9397f47d:
+                required: false
+                sortOrder: 2
+              ab9764aa-97a8-48e5-8a9f-d0ffd59f1469:
+                required: false
+                sortOrder: 1
+  73fb2039-53bc-4216-988a-3c709f88e232:
+    field: 59021a1a-cfde-47f2-8ccd-2f87d668d843
+    fields:
+      03e3df56-8da1-4031-ab73-03e1f0b0d08e:
+        name: 'Author title'
+        handle: authorTitle
+        instructions: ''
+        searchable: false
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      652137a5-097d-4607-af13-7052b797b14d:
+        name: Images
+        handle: images
+        instructions: ''
+        searchable: false
+        translationMethod: site
+        translationKeyFormat: null
+        type: craft\fields\Assets
+        settings:
+          useSingleFolder: '1'
+          defaultUploadLocationSource: 'volume:1371adaa-1b39-43ae-81e9-436941ddf73c'
+          defaultUploadLocationSubpath: ''
+          singleUploadLocationSource: 'volume:1371adaa-1b39-43ae-81e9-436941ddf73c'
+          singleUploadLocationSubpath: ''
+          restrictFiles: '1'
+          allowedKinds:
+            - image
+          sources: '*'
+          source: null
+          targetSiteId: null
+          viewMode: list
+          limit: ''
+          selectionLabel: ''
+          localizeRelations: false
+          validateRelatedElements: ''
+        contentColumnType: string
+        fieldGroup: null
+      7551104a-4c60-465f-8ecb-6beb74a16105:
+        name: 'Author name'
+        handle: authorName
+        instructions: ''
+        searchable: false
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      80587f25-f504-404d-9786-14f96adc2ccc:
+        name: Twitter
+        handle: twitter
+        instructions: ''
+        searchable: false
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\Url
+        settings:
+          placeholder: ''
+          maxLength: '255'
+        contentColumnType: string(255)
+        fieldGroup: null
+      b500d033-7110-473f-a979-9973458a980a:
+        name: 'Profile picture'
+        handle: profilePicture
+        instructions: ''
+        searchable: false
+        translationMethod: site
+        translationKeyFormat: null
+        type: craft\fields\Assets
+        settings:
+          useSingleFolder: '1'
+          defaultUploadLocationSource: 'volume:1371adaa-1b39-43ae-81e9-436941ddf73c'
+          defaultUploadLocationSubpath: ''
+          singleUploadLocationSource: 'volume:1371adaa-1b39-43ae-81e9-436941ddf73c'
+          singleUploadLocationSubpath: ''
+          restrictFiles: '1'
+          allowedKinds:
+            - image
+          sources: '*'
+          source: null
+          targetSiteId: null
+          viewMode: large
+          limit: '1'
+          selectionLabel: ''
+          localizeRelations: false
+          validateRelatedElements: ''
+        contentColumnType: string
+        fieldGroup: null
+      be50ccd2-9ba7-4fec-a107-01607fbb252c:
+        name: Description
+        handle: description
+        instructions: ''
+        searchable: false
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: '1'
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      ec6468dc-01f8-4387-858f-fbbb08bc6ce6:
+        name: Facebook
+        handle: facebook
+        instructions: ''
+        searchable: false
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\Url
+        settings:
+          placeholder: ''
+          maxLength: '255'
+        contentColumnType: string(255)
+        fieldGroup: null
+    fieldLayouts:
+      44711ee0-8635-41ba-b4ee-3ea33c2f0a7d:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              03e3df56-8da1-4031-ab73-03e1f0b0d08e:
+                required: true
+                sortOrder: 3
+              652137a5-097d-4607-af13-7052b797b14d:
+                required: false
+                sortOrder: 5
+              7551104a-4c60-465f-8ecb-6beb74a16105:
+                required: true
+                sortOrder: 2
+              80587f25-f504-404d-9786-14f96adc2ccc:
+                required: false
+                sortOrder: 7
+              b500d033-7110-473f-a979-9973458a980a:
+                required: true
+                sortOrder: 1
+              be50ccd2-9ba7-4fec-a107-01607fbb252c:
+                required: true
+                sortOrder: 4
+              ec6468dc-01f8-4387-858f-fbbb08bc6ce6:
+                required: false
+                sortOrder: 6
+  e7add163-fc92-4797-831b-7760697b6779:
+    field: e95ac300-682f-405d-8cc8-c9dc76f99104
+    fields:
+      08fa86ed-76aa-40c5-8e29-99b6a19f0c60:
+        name: 'Datum od'
+        handle: datumOd
+        instructions: ''
+        searchable: false
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\Date
+        settings:
+          showDate: true
+          showTime: false
+          minuteIncrement: '30'
+        contentColumnType: datetime
+        fieldGroup: null
+      1622c2f0-8103-4d09-be14-c712948ab874:
+        name: Dvojčka
+        handle: opisDvojcka
+        instructions: ''
+        searchable: false
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: '1'
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      2b35b42a-38e4-45d4-8cc7-b3b341f231ec:
+        name: 'Datum do'
+        handle: datumDo
+        instructions: ''
+        searchable: false
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\Date
+        settings:
+          showDate: true
+          showTime: false
+          minuteIncrement: '30'
+        contentColumnType: datetime
+        fieldGroup: null
+      562a6218-3046-4954-952c-d651593a4e23:
+        name: Lev
+        handle: opisLev
+        instructions: ''
+        searchable: false
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: '1'
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      67e85882-8795-4c78-bbfe-4c43f2e6f97c:
+        name: Tehtnica
+        handle: opisTehtnica
+        instructions: ''
+        searchable: false
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: '1'
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      7302172b-7c7c-43e8-b61c-4e88d112bdac:
+        name: 'Škorpijon'
+        handle: opisSkorpijon
+        instructions: ''
+        searchable: false
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: '1'
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      7a4ac9c9-0dc0-4d2a-997d-a0846a5a555f:
+        name: 'Opis tedenskega koroskopa'
+        handle: opis
+        instructions: ''
+        searchable: false
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: '1'
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      7ecd26a8-645d-434e-a3e6-f705006ab7be:
+        name: Devica
+        handle: opisDevica
+        instructions: ''
+        searchable: false
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: '1'
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      8bdbe1ff-c3aa-4326-a896-b5463aff67fd:
+        name: Bik
+        handle: opisBik
+        instructions: ''
+        searchable: false
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: '1'
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      9fb83bb2-65b2-488a-8191-0abc8ad08272:
+        name: Rak
+        handle: opisRak
+        instructions: ''
+        searchable: false
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: '1'
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      a003dfd6-5244-4e27-b349-f04e67320506:
+        name: Strelec
+        handle: opisStrelec
+        instructions: ''
+        searchable: false
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: '1'
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      c1a80c62-1e02-4a1b-8644-874a89a1d355:
+        name: Kozorog
+        handle: opisKozorog
+        instructions: ''
+        searchable: false
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: '1'
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      c818ab2f-7ea7-4971-a775-558e79123920:
+        name: Vodnar
+        handle: opisVodnar
+        instructions: ''
+        searchable: false
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: '1'
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      cc031140-0287-4247-976a-cda688db90f0:
+        name: Oven
+        handle: opisOven
+        instructions: ''
+        searchable: false
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: '1'
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      fa97e279-fead-45a4-b654-16691db4ab1c:
+        name: Ribi
+        handle: opisRibi
+        instructions: ''
+        searchable: false
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: '1'
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+    fieldLayouts:
+      46500782-bc17-48be-a832-3d66c13b20db:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              08fa86ed-76aa-40c5-8e29-99b6a19f0c60:
+                required: true
+                sortOrder: 1
+              1622c2f0-8103-4d09-be14-c712948ab874:
+                required: true
+                sortOrder: 6
+              2b35b42a-38e4-45d4-8cc7-b3b341f231ec:
+                required: true
+                sortOrder: 2
+              562a6218-3046-4954-952c-d651593a4e23:
+                required: true
+                sortOrder: 8
+              67e85882-8795-4c78-bbfe-4c43f2e6f97c:
+                required: true
+                sortOrder: 10
+              7302172b-7c7c-43e8-b61c-4e88d112bdac:
+                required: true
+                sortOrder: 11
+              7a4ac9c9-0dc0-4d2a-997d-a0846a5a555f:
+                required: false
+                sortOrder: 3
+              7ecd26a8-645d-434e-a3e6-f705006ab7be:
+                required: true
+                sortOrder: 9
+              8bdbe1ff-c3aa-4326-a896-b5463aff67fd:
+                required: true
+                sortOrder: 5
+              9fb83bb2-65b2-488a-8191-0abc8ad08272:
+                required: true
+                sortOrder: 7
+              a003dfd6-5244-4e27-b349-f04e67320506:
+                required: true
+                sortOrder: 12
+              c1a80c62-1e02-4a1b-8644-874a89a1d355:
+                required: true
+                sortOrder: 13
+              c818ab2f-7ea7-4971-a775-558e79123920:
+                required: true
+                sortOrder: 14
+              cc031140-0287-4247-976a-cda688db90f0:
+                required: true
+                sortOrder: 4
+              fa97e279-fead-45a4-b654-16691db4ab1c:
+                required: true
+                sortOrder: 15
+  f6d9d0cd-1817-460f-b17a-0a83ebf432bb:
+    field: d034d755-6241-4073-b724-8be3f7beb4a2
+    fields:
+      35cf1948-48c1-41d5-869c-14b496f65742:
+        name: 'Blog title'
+        handle: blogTitle
+        instructions: ''
+        searchable: false
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      6fb6ff44-6fc1-49b4-87e2-51d8b7396823:
+        name: Text
+        handle: text
+        instructions: ''
+        searchable: false
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\redactor\Field
+        settings:
+          redactorConfig: Standard.json
+          purifierConfig: ''
+          cleanupHtml: true
+          removeInlineStyles: '1'
+          removeEmptyTags: '1'
+          removeNbsp: '1'
+          purifyHtml: '1'
+          columnType: text
+          availableVolumes: '*'
+          availableTransforms: '*'
+        contentColumnType: text
+        fieldGroup: null
+      a1ec9307-c3e2-41af-a3bb-19980ac44693:
+        name: Kategorije
+        handle: tags
+        instructions: ''
+        searchable: false
+        translationMethod: site
+        translationKeyFormat: null
+        type: craft\fields\Tags
+        settings:
+          allowMultipleSources: false
+          allowLimit: false
+          sources: '*'
+          source: 'taggroup:92090a48-e1cf-46e7-b102-2d5c267dd579'
+          targetSiteId: null
+          viewMode: null
+          limit: null
+          selectionLabel: ''
+          localizeRelations: false
+          validateRelatedElements: ''
+        contentColumnType: string
+        fieldGroup: null
+      ec6e08e9-fa26-46c0-b518-5b561e5044e8:
+        name: Image
+        handle: image
+        instructions: ''
+        searchable: false
+        translationMethod: site
+        translationKeyFormat: null
+        type: craft\fields\Assets
+        settings:
+          useSingleFolder: ''
+          defaultUploadLocationSource: 'volume:1371adaa-1b39-43ae-81e9-436941ddf73c'
+          defaultUploadLocationSubpath: ''
+          singleUploadLocationSource: 'volume:1371adaa-1b39-43ae-81e9-436941ddf73c'
+          singleUploadLocationSubpath: ''
+          restrictFiles: '1'
+          allowedKinds:
+            - image
+          sources:
+            - 'volume:1371adaa-1b39-43ae-81e9-436941ddf73c'
+          source: null
+          targetSiteId: null
+          viewMode: large
+          limit: '1'
+          selectionLabel: ''
+          localizeRelations: false
+          validateRelatedElements: ''
+        contentColumnType: string
+        fieldGroup: null
+    fieldLayouts:
+      b1ac1051-4ab7-413b-9fc5-23b8c3105bcb:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              35cf1948-48c1-41d5-869c-14b496f65742:
+                required: true
+                sortOrder: 2
+              6fb6ff44-6fc1-49b4-87e2-51d8b7396823:
+                required: true
+                sortOrder: 3
+              a1ec9307-c3e2-41af-a3bb-19980ac44693:
+                required: true
+                sortOrder: 4
+              ec6e08e9-fa26-46c0-b518-5b561e5044e8:
+                required: false
+                sortOrder: 1
+system:
+  edition: solo
+  name: 'Zavestno prebujanje'
+  live: true
+  schemaVersion: 3.3.3
+  timeZone: America/Los_Angeles
+tagGroups:
+  92090a48-e1cf-46e7-b102-2d5c267dd579:
+    name: 'Kategorije prispevkov'
+    handle: kategorijePrispevkov
+users:
+  requireEmailVerification: true
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoVolumeUid: null
+  photoSubpath: ''
+volumes:
+  1371adaa-1b39-43ae-81e9-436941ddf73c:
+    name: Images
+    handle: images
+    type: craft\volumes\Local
+    hasUrls: true
+    url: '@web/uploads/images'
+    settings:
+      path: '@webroot/uploads/images'
+    sortOrder: 1

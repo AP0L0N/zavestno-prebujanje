@@ -1,0 +1,17 @@
+
+<section class="blog-list">
+
+    <div class="row">
+
+        <div class="col-12">
+
+            {% for index, blog in craft.entries().section("prispevki").orderBy("postDate desc").limit(1).all() %}
+
+                {% include "_fields/_blogInfo" %}
+
+            {% endfor %}
+
+        </div>
+    </div>
+
+</section>

@@ -1,0 +1,41 @@
+
+{% if blog and blog.blogInfo %}
+
+    <article class="single-blog">
+
+        {% if blog.blogInfo.image %}
+            <div class="post-thumb">
+                <a href="{{ blog.url }}">
+                    <img src="{{ blog.blogInfo.image.one().url }}" alt="Slika {{ blog.blogInfo.blogTitle }}">
+                </a>
+            </div>
+        {% endif %}
+
+        <div class="post-content">
+            <div class="entry-header text-center text-uppercase">
+                {% for tag in blog.blogInfo.tags.all() %}
+                    <a href="javascript:" class="post-cat">{{ tag }}</a>
+                {% endfor %}
+                <h2><a href="{{ blog.url }}">{{ blog.blogInfo.blogTitle }}</a></h2>
+            </div>
+            <div class="entry-content">
+                <p>{{ blog.blogInfo.text|striptags|length > 300 ? blog.blogInfo.text|striptags|slice(0, 300) ~ '...' : blog.blogInfo.text | striptags }}</p>
+            </div>
+            <div class="continue-reading text-center text-uppercase">
+                <a href="{{ blog.url }}">Preberite več</a>
+            </div>
+
+            <div class="post-meta">
+                <ul class="float-left list-inline author-meta">
+                    <li class="author mb-1">Avtor: <a href="#">Špela Plemelj </a></li>
+                    <li class="date"> {{ blog.postDate | date("j.n.Y") }}</li>
+                </ul>
+                <ul class="float-right list-inline social-share">
+                    <li class="float-right ml-2"><a href="{{ mainAuthor.authorInfo.facebook }}"><i class="fab fa-facebook"></i></a></li>
+                    <li class="float-right"><a href="{{ mainAuthor.authorInfo.twitter }}"><i class="fab fa-twitter"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </article>
+
+{% endif %}

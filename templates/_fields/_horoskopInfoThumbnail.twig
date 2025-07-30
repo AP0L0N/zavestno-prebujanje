@@ -1,0 +1,22 @@
+
+{% if horoskop and horoskop.horoskopInfo %}
+
+    <article class="single-blog">
+
+        <div class="post-content">
+
+            <div class="entry-header text-left text-uppercase">
+                <h2>{{ horoskop.title }}</h2>
+                {% if horoskop.horoskopInfo.opis is not empty %}
+                    <p>
+                        {{ horoskop.horoskopInfo.opis }}
+                    </p>
+                {% endif %}
+
+                <a href="{{ horoskop.url }}">Preberi več <i class="fas fa-angle-right ml-2"></i></a>
+            </div>
+        </div>
+
+    </article>
+
+{% endif %}

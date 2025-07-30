@@ -1,0 +1,66 @@
+{% extends '_layouts/site-content' %}
+
+{# If you need to exclude a field from the loops, add it's handle to the excludes array #}
+{% set excludes = ['metadataAndSeo'] %}
+
+{% block content %}
+    <section class="page" id="{{ entry.type.handle }}">
+
+        <article class="post-area single-blog">
+
+            <div class="single-about">
+                <div class="about-us-img float-left">
+                    <img src="{{ mainAuthor.authorInfo.profilePicture.one().url }}" alt="Slika osebe - {{ mainAuthor.authorInfo.authorName }}" class="img-me img-circle">
+                </div>
+                <div class="about-us-text mt-0">
+                    <h3 class="text-uppercase">{{ mainAuthor.authorInfo.authorName }}</h3>
+                    <h5 class="mb-4">{{ mainAuthor.authorInfo.authorTitle }}</h5>
+                    <p>{{ mainAuthor.authorInfo.description | nl2br }}</p>
+
+                    <div class="social-share">
+                        <ul class="list-inline">
+                            {% if mainAuthor.authorInfo.facebook is not empty %}
+                                <li class="text-center d-inline-block mr-2">
+                                    <a class="s-facebook" href="{{ mainAuthor.authorInfo.facebook }}"><i class="fab fa-facebook"></i></a>
+                                </li>
+                            {% endif %}
+
+                            {% if mainAuthor.authorInfo.twitter is not empty %}
+                                <li class="text-center d-inline-block">
+                                    <a class="s-twitter" href="{{ mainAuthor.authorInfo.twitter }}"><i class="fab fa-twitter"></i></a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <article class="single-blog contact-us">
+
+            <div class="post-content">
+                <div class="entry-header text-center text-uppercase">
+
+                    <h2 class="text-left"><a href="javascript:">{{ "Kontaktirajte nas" | t }}</a></h2>
+                </div>
+
+                <div class="entry-content">
+                    <p>
+
+                    </p>
+
+                    <div class="address">
+                        <h4 class="text-uppercase">{{ "Kontaktne informacije" | t }}</h4>
+                        <p><i class="fal fa-home mr-2"></i> {{ mainContact.contactInfo.address }}</p>
+                        <p><i class="fal fa-phone mr-2"></i> {{ mainContact.contactInfo.phoneNumber }}</p>
+                        <a href="mailto:{{ mainContact.contactInfo.email }}"><i class="fal fa-envelope mr-2"></i> {{ mainContact.contactInfo.email }}</a>
+                    </div>
+
+                </div>
+
+            </div>
+        </article>
+
+    </section>
+
+{% endblock %}

@@ -1,0 +1,76 @@
+{# SEO Start #}
+	{# Tip: You can pass the handle of your SEO field - getSeoField('mySeoFieldHandle') #}
+	{% set seo = getSeoField() %}
+	{% if seo is null or seo.title == '' %}
+        {% set seo = craft.seo.custom(siteName, '', false) %}
+    {% endif -%}
+
+	{% set locale = craft.app.locale %}
+	{% set locales = craft.app.i18n.siteLocaleIds|without(locale) %}
+
+<title>{{ seo.title }}</title>
+<meta name="description" content="{{ seo.description }}" />
+
+{% set fb = seo.social.facebook -%}
+<meta property="fb:app_id" content="{{ fb.handle }}">
+<meta property="og:url" content="{{ craft.app.request.absoluteUrl }}" />
+<meta property="og:type" content="website" />
+
+
+{% if entry.blogInfo and entry.blogInfo.image.one() %}
+    <meta property="og:image" content="{{ entry.blogInfo.image.one().url }}" />
+    <meta property="og:image:width" content="{{ entry.blogInfo.image.one().width }}" />
+    <meta property="og:image:height" content="{{ entry.blogInfo.image.one().height }}" />
+    <meta property="og:title" content="{{ entry.blogInfo.blogTitle }}" />
+    <meta property="og:description" content="{{ entry.blogInfo.text | striptags | trim }}" />
+
+{% elseif entry.horoskopInfo %}
+    <meta property="og:image" content="{{ craft.seo.facebookImage(fb.image) }}" />
+    <meta property="og:title" content="{{ entry.horoskopInfo.title }}" />
+    <meta property="og:description" content="{{ entry.horoskopInfo.opis }}" />
+
+{% else %}
+    <meta property="og:image" content="{{ craft.seo.facebookImage(fb.image) }}" />
+    <meta property="og:title" content="{{ fb.title }}" />
+    <meta property="og:description" content="{{ fb.description }}" />
+
+{% endif %}
+
+<meta property="og:site_name" content="{{ siteName }}" />
+<meta property="og:locale" content="{{ locale|replace('-', '_') }}" />
+{% for locale in locales -%}
+    <meta property="og:locale:alternate" content="{{ locale|replace('-', '_') }}" />
+{% endfor %}
+
+	{% set tw = seo.social.twitter -%}
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="{{ tw.handle }}" />
+<meta name="twitter:url" content="{{ craft.app.request.absoluteUrl }}" />
+
+{% if entry.blogInfo and entry.blogInfo.image.one() %}
+    <meta property="twitter:image" content="{{ entry.blogInfo.image.one().url }}" />
+    <meta name="twitter:title" content="{{ entry.blogInfo.blogTitle }}" />
+    <meta name="twitter:description" content="{{ entry.blogInfo.text | striptags | trim }}" />
+
+{% elseif entry.horoskopInfo and entry.horoskopInfo.image %}
+    <meta property="twitter:image" content="{{ entry.horoskopInfo.image.one().url }}" />
+    <meta name="twitter:title" content="{{ entry.horoskopInfo.title }}" />
+    <meta name="twitter:description" content="{{ entry.horoskopInfo.opis }}" />
+
+{% else %}
+    <meta property="twitter:image" content="{{ craft.seo.twitterImage(tw.image) }}" />
+    <meta name="twitter:title" content="{{ tw.title }}" />
+    <meta name="twitter:description" content="{{ tw.description }}" />
+
+{% endif %}
+
+{% if seo.robots -%}
+    <meta name="robots" content="{{ seo.robots }}" />
+{% endif %}
+	{%- if seo.expiry -%}
+        <meta name="robots" content="unavailable_after: {{ seo.expiry }}" />
+    {% endif %}
+
+<link rel="home" href="{{ siteUrl }}" />
+<link rel="canonical" href="{{ seo.canonical }}">
+{# SEO End #}

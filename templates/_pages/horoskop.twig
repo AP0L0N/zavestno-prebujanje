@@ -1,0 +1,39 @@
+{% extends '_layouts/site-content' %}
+
+{# If you need to exclude a field from the loops, add it's handle to the excludes array #}
+{% set excludes = ['metadataAndSeo'] %}
+
+{% block content %}
+
+    <section class="page" id="{{ entry.type.handle }}">
+
+
+        <div class="mb-4">
+            <h1></h1>
+        </div>
+
+        <div class="archive-header text-center">
+            <div class="archive-title"><span class="archive-name">{{ "Tedenski horoskop" | t }}</span>
+            </div>
+        </div>
+
+        {% for index, horoskop in craft.entries().section("horoskop").orderBy("postDate desc").all() %}
+
+            {% include "_fields/_horoskopInfoThumbnail" %}
+
+        {% endfor %}
+
+        <div class="archive-header text-center">
+            <div class="archive-title"><span class="archive-name">{{ "Letni horoskop" | t }}</span>
+            </div>
+        </div>
+
+        {% for index, horoskop in craft.entries().section("letniHoroskop").orderBy("postDate desc").all() %}
+
+            {% include "_fields/_horoskopInfoThumbnail" %}
+
+        {% endfor %}
+
+    </section>
+
+{% endblock %}

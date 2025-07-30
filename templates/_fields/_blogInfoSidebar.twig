@@ -1,0 +1,19 @@
+
+{% if blog and blog.blogInfo %}
+
+    <li class="media">
+        {% if blog.blogInfo.image %}
+            <div class="media-left">
+                <a href="{{ blog.url }}" class="popular-img">
+                    <img style="max-width: 70px;" src="{{ blog.blogInfo.image.one().url }}" alt="Slika {{ blog.blogInfo.blogTitle }}">
+                </a>
+            </div>
+        {% endif %}
+
+        <div class="latest-post-content">
+            <h2 class="text-uppercase"><a href="{{ blog.url }}">{{ blog.blogInfo.blogTitle }}</a></h2>
+            <p>Špela Plemelj, {{ blog.postDate | date("j.n.Y") }}</p>
+        </div>
+    </li>
+
+{% endif %}
