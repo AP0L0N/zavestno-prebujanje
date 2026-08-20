@@ -1,0 +1,17 @@
+contentColumnType: string
+fieldGroup: 8b413b3b-270d-4fdf-b737-1a12054e063c
+handle: pageInfo
+instructions: ''
+name: 'Page info'
+searchable: true
+settings:
+  contentTable: '{{%stc_pageinfo}}'
+  fieldLayout: matrix
+  maxRows: ''
+  minRows: ''
+  propagationMethod: all
+  selectionLabel: ''
+  staticField: '1'
+translationKeyFormat: null
+translationMethod: site
+type: verbb\supertable\fields\SuperTableField

@@ -1,5 +1,4 @@
 <div class="kotha-sidebar">
-
     {% include "_fields/authorInfo" %}
 
     {% set horoskop = craft.entries().section("horoskop").orderBy("postDate desc").one() %}
@@ -9,5 +8,4 @@
 
     {% set horoskop = craft.entries().section("letniHoroskop").orderBy("postDate desc").one() %}
     {% include "_fields/_horoskopInfoSidebarYearly" %}
-
 </div>

@@ -1,0 +1,47 @@
+contentColumnType: string
+fieldGroup: 86398b5a-bde2-45ba-b078-2c2569c3bb0d
+handle: blogInfo
+instructions: ''
+name: 'Blog Info'
+searchable: true
+settings:
+  columns:
+    __assoc__:
+      -
+        - 5
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 2
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 4
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 7
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+  contentTable: '{{%stc_bloginfo}}'
+  fieldLayout: matrix
+  maxRows: ''
+  minRows: ''
+  propagationMethod: all
+  selectionLabel: ''
+  staticField: '1'
+translationKeyFormat: null
+translationMethod: site
+type: verbb\supertable\fields\SuperTableField

@@ -1,17 +1,1 @@
-
-<section class="blog-list">
-
-    <div class="row">
-
-        <div class="col-12">
-
-            {% for index, blog in craft.entries().section("prispevki").orderBy("postDate desc").limit(1).all() %}
-
-                {% include "_fields/_blogInfo" %}
-
-            {% endfor %}
-
-        </div>
-    </div>
-
-</section>
+{# Homepage now renders via _pages/home.twig. Keep this include safe if the CMS field is still present. #}

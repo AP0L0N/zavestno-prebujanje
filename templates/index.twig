@@ -1,38 +1,18 @@
 {% extends '_layouts/site-content' %}
 
-{# If you need to exclude a field from the loops, add it's handle to the excludes array #}
-{% set excludes = ['metadataAndSeo', 'blogSeo'] %}
-
 {% block content %}
-    <section class="page" id="{{ entry.type.handle }}">
+    {% set sectionHandle = entry is defined and entry ? entry.section.handle : 'naslovnaStran' %}
 
-        <!-- Main section -->
-        <section class="main-section">
-            <div class="cb">
+    {% if sectionHandle == 'naslovnaStran' %}
+        {% include '_pages/home' %}
 
-                {# loop through the fields in the entries fieldLayout Model #}
-                {% for field in entry.getFieldLayout().getFields() %}
-                    {% if field.handle not in excludes %}
-                        {# include the fields twig template  #}
-                        {% include '_fields/' ~ field.handle %}
-                    {% endif %}
-                {% endfor %}
+    {% elseif sectionHandle == 'prispevki' %}
+        {% include '_fields/blogInfo' %}
 
-                {# structure entry types have to loop through the fields in the entries fieldLayout Model #}
-                {% set children = entry.children() %}
-                {% for entry in children.all() %}
+    {% elseif sectionHandle in ['horoskop', 'letniHoroskop'] %}
+        {% include '_fields/horoskopInfo' %}
 
-                    {% for field in entry.getFieldLayout().getFields() %}
-                        {% if field.handle not in excludes %}
-                            {# include the fields twig template  #}
-                            {% include '_fields/' ~ field.handle %}
-                        {% endif %}
-                    {% endfor %}
-
-                {% endfor %}
-
-            </div>
-        </section>
-    </section>
-
+    {% else %}
+        {% include '_fields/pageInfo' %}
+    {% endif %}
 {% endblock %}

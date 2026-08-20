@@ -1,0 +1,13 @@
+fieldLayouts:
+  0b64f469-df16-40fa-9854-220839c6ea4e:
+    tabs:
+      -
+        fields:
+          768c0010-918e-450a-af65-49a69c0e50b2:
+            required: false
+            sortOrder: 1
+        name: 'Tab 1'
+        sortOrder: 1
+handle: globalInfo
+name: 'Opis strani'
+sortOrder: 3

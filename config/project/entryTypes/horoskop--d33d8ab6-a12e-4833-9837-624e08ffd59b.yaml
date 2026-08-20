@@ -1,0 +1,60 @@
+fieldLayouts:
+  5c560ae8-0507-4bee-9050-f2d5b402f26b:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\EntryTitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: e95ac300-682f-405d-8cc8-c9dc76f99104
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Tab 1'
+        sortOrder: 1
+      -
+        elements:
+          -
+            fieldUid: e3066447-9c56-45d7-8ca9-f245e8578127
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Tab 2'
+        sortOrder: 2
+handle: horoskop
+hasTitleField: false
+name: Horoskop
+section: 444ab345-ee9e-46e5-9bb2-486991716326
+sortOrder: 1
+titleFormat: 'Tedenski horoskop za datum {{ horoskopInfo.datumOd | date("j.n.Y") }} do {{ horoskopInfo.datumDo | date("j.n.Y") }}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

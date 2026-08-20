@@ -1,0 +1,129 @@
+{% set siteTitle = siteName|default('Zavestno prebujanje') %}
+{% set currentEntry = entry is defined ? entry : null %}
+{% set sectionHandle = currentEntry ? currentEntry.section.handle : '' %}
+{% set logoUrl = url('/assets/images/logo.png') %}
+{% set defaultImage = url('/assets/images/og-default.jpg') %}
+{% set authorName = 'Špela Plemelj' %}
+{% set authorUrl = url('about') %}
+{% set profile = null %}
+{% if mainAuthor is defined and mainAuthor.authorInfo is not empty %}
+  {% set authorName = mainAuthor.authorInfo.authorName ?: authorName %}
+  {% if mainAuthor.authorInfo.profilePicture %}
+    {% set profile = mainAuthor.authorInfo.profilePicture.one() %}
+  {% endif %}
+{% endif %}
+
+{% set organization = {
+  '@type': 'Organization',
+  '@id': siteUrl ~ '#organization',
+  'name': siteTitle,
+  'url': siteUrl,
+  'logo': {
+    '@type': 'ImageObject',
+    'url': logoUrl
+  },
+  'email': (mainContact is defined and mainContact.contactInfo ? mainContact.contactInfo.email : null),
+  'telephone': (mainContact is defined and mainContact.contactInfo ? mainContact.contactInfo.phoneNumber : null)
+} %}
+
+{% set person = {
+  '@type': 'Person',
+  '@id': authorUrl ~ '#person',
+  'name': authorName,
+  'jobTitle': mainAuthor.authorInfo.authorTitle ?? 'Astrologinja',
+  'url': authorUrl,
+  'image': profile ? profile.url : null,
+  'worksFor': { '@id': siteUrl ~ '#organization' }
+} %}
+
+{% set website = {
+  '@type': 'WebSite',
+  '@id': siteUrl ~ '#website',
+  'name': siteTitle,
+  'url': siteUrl,
+  'inLanguage': 'sl',
+  'publisher': { '@id': siteUrl ~ '#organization' },
+  'author': { '@id': authorUrl ~ '#person' }
+} %}
+
+{% set graph = [organization, person, website] %}
+
+{% if currentEntry %}
+  {% set crumbs = [
+    { '@type': 'ListItem', 'position': 1, 'name': 'Domov', 'item': siteUrl }
+  ] %}
+
+  {% if sectionHandle == 'prispevki' %}
+    {% set crumbs = crumbs|merge([
+      { '@type': 'ListItem', 'position': 2, 'name': 'Članki', 'item': url('prispevki') },
+      { '@type': 'ListItem', 'position': 3, 'name': currentEntry.blogInfo.blogTitle ?? currentEntry.title, 'item': currentEntry.url }
+    ]) %}
+    {% set image = currentEntry.blogInfo.image.one() ?? null %}
+    {% set graph = graph|merge([{
+      '@type': 'Article',
+      '@id': currentEntry.url ~ '#article',
+      'headline': currentEntry.blogInfo.blogTitle ?? currentEntry.title,
+      'description': currentEntry.blogInfo.text|striptags|slice(0, 180),
+      'datePublished': currentEntry.postDate|date('c'),
+      'dateModified': currentEntry.dateUpdated|date('c'),
+      'inLanguage': 'sl',
+      'mainEntityOfPage': currentEntry.url,
+      'image': image ? image.url : defaultImage,
+      'author': { '@id': authorUrl ~ '#person' },
+      'publisher': { '@id': siteUrl ~ '#organization' }
+    }]) %}
+
+  {% elseif sectionHandle in ['horoskop', 'letniHoroskop'] %}
+    {% set crumbs = crumbs|merge([
+      { '@type': 'ListItem', 'position': 2, 'name': 'Horoskop', 'item': url('horoskop') },
+      { '@type': 'ListItem', 'position': 3, 'name': currentEntry.title, 'item': currentEntry.url }
+    ]) %}
+    {% set graph = graph|merge([{
+      '@type': 'Article',
+      '@id': currentEntry.url ~ '#article',
+      'headline': currentEntry.title,
+      'description': (currentEntry.horoskopInfo.opis ?? currentEntry.title)|striptags|slice(0, 180),
+      'datePublished': currentEntry.postDate|date('c'),
+      'dateModified': currentEntry.dateUpdated|date('c'),
+      'inLanguage': 'sl',
+      'mainEntityOfPage': currentEntry.url,
+      'image': defaultImage,
+      'author': { '@id': authorUrl ~ '#person' },
+      'publisher': { '@id': siteUrl ~ '#organization' }
+    }]) %}
+
+  {% elseif sectionHandle == 'seznamHoroskopov' %}
+    {% set crumbs = crumbs|merge([
+      { '@type': 'ListItem', 'position': 2, 'name': 'Horoskop', 'item': url('horoskop') }
+    ]) %}
+
+  {% elseif sectionHandle == 'seznamPrispevkov' %}
+    {% set crumbs = crumbs|merge([
+      { '@type': 'ListItem', 'position': 2, 'name': 'Članki', 'item': url('prispevki') }
+    ]) %}
+
+  {% elseif sectionHandle == 'oMeni' %}
+    {% set crumbs = crumbs|merge([
+      { '@type': 'ListItem', 'position': 2, 'name': 'O meni', 'item': url('about') }
+    ]) %}
+
+  {% elseif sectionHandle == 'kontakt' %}
+    {% set crumbs = crumbs|merge([
+      { '@type': 'ListItem', 'position': 2, 'name': 'Kontakt', 'item': url('contact') }
+    ]) %}
+  {% endif %}
+
+  {% if crumbs|length > 1 %}
+    {% set graph = graph|merge([{
+      '@type': 'BreadcrumbList',
+      'itemListElement': crumbs
+    }]) %}
+  {% endif %}
+{% endif %}
+
+<script type="application/ld+json">
+{{ {
+  '@context': 'https://schema.org',
+  '@graph': graph
+}|json_encode|raw }}
+</script>

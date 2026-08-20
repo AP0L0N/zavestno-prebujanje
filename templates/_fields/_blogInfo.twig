@@ -1,39 +1,43 @@
+{% import '_macros/ui' as ui %}
 
 {% if blog and blog.blogInfo %}
-
-    <article class="single-blog">
-
-        {% if blog.blogInfo.image %}
-            <div class="post-thumb">
-                <a href="{{ blog.url }}">
-                    <img src="{{ blog.blogInfo.image.one().url }}" alt="Slika {{ blog.blogInfo.blogTitle }}">
-                </a>
+    {% set image = blog.blogInfo.image.one() ?? null %}
+    <article class="article" itemscope itemtype="https://schema.org/Article">
+        {% if image %}
+            <div class="article-media">
+                {{ ui.assetImage(image, 'Slika: ' ~ blog.blogInfo.blogTitle, '', 1200, 675, false) }}
             </div>
         {% endif %}
 
-        <div class="post-content">
-            <div class="entry-header text-center text-uppercase">
-                {% for tag in blog.blogInfo.tags.all() %}
-                    <a href="javascript:" class="post-cat">{{ tag }}</a>
-                {% endfor %}
-                <h2><a href="{{ blog.url }}">{{ blog.blogInfo.blogTitle }}</a></h2>
-            </div>
-            <div class="entry-content">
-                <p>{{ blog.blogInfo.text | raw }}</p>
+        <div class="article-body">
+            {% include '_partials/breadcrumbs' with {
+                crumbs: [
+                    { title: 'Članki', url: url('prispevki') },
+                    { title: blog.blogInfo.blogTitle, url: blog.url }
+                ]
+            } %}
+
+            {% set tags = blog.blogInfo.tags.all() %}
+            {% if tags|length %}
+                <div class="tags">
+                    {% for tag in tags %}
+                        <span class="tag">{{ tag.title }}</span>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <h1 class="article-title" itemprop="headline">{{ blog.blogInfo.blogTitle }}</h1>
+
+            <div class="meta">
+                <span itemprop="author">{{ mainAuthor.authorInfo.authorName ?? 'Špela Plemelj' }}</span>
+                <time datetime="{{ blog.postDate|date('c') }}" itemprop="datePublished">{{ blog.postDate|date('j. n. Y') }}</time>
             </div>
 
-            <div class="post-meta">
-                <ul class="float-left list-inline author-meta">
-                    <li class="author mb-1">Avtor: <a href="#">Špela Plemelj </a></li>
-                    <li class="date"> {{ blog.postDate | date("j.n.Y") }}</li>
-                </ul>
-                <ul class="float-right list-inline social-share">
-                    <li class="float-right ml-2"><a href="{{ mainAuthor.authorInfo.facebook }}"><i class="fab fa-facebook"></i></a></li>
-                    <li class="float-right"><a href="{{ mainAuthor.authorInfo.twitter }}"><i class="fab fa-twitter"></i></a></li>
-                </ul>
+            <div class="entry-content" itemprop="articleBody">
+                {{ blog.blogInfo.text|raw }}
             </div>
+
+            {% include '_partials/share' with { shareUrl: blog.url, shareTitle: blog.blogInfo.blogTitle } %}
         </div>
-
     </article>
-
 {% endif %}

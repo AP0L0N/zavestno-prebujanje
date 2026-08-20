@@ -1,27 +1,19 @@
-
+{% import '_macros/ui' as ui %}
 {% set page = entry %}
 
 {% if page and page.pageInfo %}
-
-    <article class="single-blog">
-
-        {% if page.pageInfo.image %}
-            <div class="post-thumb">
-                <a href="{{ page.url }}">
-                    <img src="{{ page.pageInfo.image.one().url }}" alt="Slika {{ page.pageInfo.blogTitle }}">
-                </a>
+    {% set image = page.pageInfo.image.one() ?? null %}
+    <article class="article">
+        {% if image %}
+            <div class="article-media">
+                {{ ui.assetImage(image, 'Slika: ' ~ page.pageInfo.naslov, '', 1200, 675, false) }}
             </div>
         {% endif %}
-
-        <div class="post-content">
-            <div class="entry-header text-center text-uppercase">
-                <h2><a href="{{ page.url }}">{{ page.pageInfo.naslov }}</a></h2>
-            </div>
+        <div class="article-body">
+            <h1>{{ page.pageInfo.naslov }}</h1>
             <div class="entry-content">
-                <p>{{ page.pageInfo.besedilo | raw }}</p>
+                {{ page.pageInfo.besedilo|raw }}
             </div>
         </div>
-
     </article>
-
 {% endif %}

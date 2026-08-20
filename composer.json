@@ -1,6 +1,6 @@
 {
   "require": {
-    "craftcms/cms": "^3.0.0",
+    "craftcms/cms": "^3.9.15",
     "verbb/super-table": "^2.2.1",
     "verbb/image-resizer": "^2.0.5",
     "verbb/navigation": "^1.1.12",
@@ -20,7 +20,7 @@
     "sort-packages": true,
     "optimize-autoloader": true,
     "platform": {
-      "php": "7.0"
+      "php": "7.4"
     },
     "allow-plugins": {
       "craftcms/plugin-installer": true,

@@ -1,34 +1,21 @@
+{% import '_macros/ui' as ui %}
 
 {% if blog and blog.blogInfo %}
-
-    <article class="single-blog post-list">
-        <div class="media">
-
-            {% if blog.blogInfo.image %}
-
-                <div class="media-left">
-                    <div class="post-thumb">
-                        <a href="{{ blog.url }}"> <img src="{{ blog.blogInfo.image.one().url }}" style="max-width: 360px" alt="Slika {{ blog.blogInfo.blogTitle }}"></a>
-                    </div>
-                </div>
-
-            {% endif %}
-
-            <div class="media-body">
-                <div class="post-content">
-                    <div class="entry-header text-left text-uppercase">
-                        <h2><a href="{{ blog.url }}">{{ blog.blogInfo.blogTitle }}</a></h2>
-                    </div>
-                    <div class="entry-content mb-0 pr-3">
-                        <p>{{ blog.blogInfo.text|striptags|length > 100 ? blog.blogInfo.text|striptags|slice(0, 100) ~ '...' : blog.blogInfo.text | striptags }}</p>
-
-                        <div class="continue-reading text-left text-uppercase">
-                            <a href="{{ blog.url }}">Preberite več</a>
-                        </div>
-                    </div>
-                </div>
+    {% set image = blog.blogInfo.image.one() ?? null %}
+    <article class="post-card">
+        <a href="{{ blog.url }}">
+            <div class="post-card-media">
+                {% if image %}
+                    {{ ui.assetImage(image, 'Slika: ' ~ blog.blogInfo.blogTitle, '', 720, 450) }}
+                {% endif %}
             </div>
-        </div>
+            <div class="post-card-body">
+                <div class="meta">
+                    <time datetime="{{ blog.postDate|date('c') }}">{{ blog.postDate|date('j. n. Y') }}</time>
+                </div>
+                <h3>{{ blog.blogInfo.blogTitle }}</h3>
+                <p>{{ ui.excerpt(blog.blogInfo.text, 120) }}</p>
+            </div>
+        </a>
     </article>
-
 {% endif %}

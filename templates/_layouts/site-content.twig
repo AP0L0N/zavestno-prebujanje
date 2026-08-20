@@ -1,86 +1,62 @@
 <!DOCTYPE html>
 <html lang="sl">
 <head>
-
-    <!-- Document Settings -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 
-    {% hook "seo" %}
+    {% include '_layouts/site-seo' %}
 
     {% set env = getenv('ENVIRONMENT') %}
-
     {% if env == 'dev' %}
         {% set revision = random() %}
     {% else %}
-        {% set revision = "1.1.4" %}
+        {% set revision = "2.0.0" %}
     {% endif %}
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,700i%7cOswald:300,400,500,600,700%7cPlayfair+Display:400,400i,700,700i" rel="stylesheet">
-    <!-- Styles -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/slick-theme.css">
-    <link rel="stylesheet" href="assets/css/slick.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="{{ '/assets/css/site.css?rev=' ~ revision }}" rel="stylesheet">
 
-    {# Main styles #}
-    <link href="{{ '/assets/css/theme.css?rev=' ~ revision }}" rel="stylesheet" type="text/css" media="all" />
-
-    {# Main JS files #}
-    <script type="text/javascript" src="{{ '/assets/js/head.js?rev=' ~ revision }}"></script>
-
-    <!-- HTML5 shim and Respond.js IE9 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="assets/js/html5shiv.js"></script>
-    <script src="assets/js/respond.js"></script>
-    <![endif]-->
-
+    {% include '_layouts/jsonld' %}
+    <link rel="manifest" href="/site.webmanifest">
 </head>
-<body>
+<body id="top">
+    {% set currentEntry = entry is defined ? entry : null %}
+    {% set sectionHandle = currentEntry ? currentEntry.section.handle : '' %}
+    {% set isHome = sectionHandle == 'naslovnaStran' %}
+    {% set isFull = isHome or sectionHandle == '' %}
 
-{# Header #}
-{% include '_layouts/site-header' %}
+    <a class="skip-link" href="#content">Preskoči na vsebino</a>
 
-{# Content #}
-<main id="content">
-    <div class="container">
+    {% include '_layouts/site-header' %}
 
-        <div class="row">
+    <main id="content">
+        {% if not isFull %}
+            <div class="container">
+                <div class="layout">
+                    <div class="layout-main">
+        {% endif %}
 
-            <div class="col-sm-8">
+        {% block content %}{{ content is defined ? content }}{% endblock %}
 
-                {% block content %} {{ content is defined ? content }} {% endblock %}
-
+        {% if not isFull %}
+                    </div>
+                    <aside class="layout-sidebar" aria-label="Stranski stolpec">
+                        {% include '_layouts/site-sidebar' %}
+                    </aside>
+                </div>
             </div>
+        {% endif %}
+    </main>
 
-            <div class="col-sm-4">
+    {% include '_layouts/site-footer' %}
+    {% include '_layouts/site-modals' %}
 
-                {# Sidebar #}
-                {% include '_layouts/site-sidebar' %}
+    <a href="#top" class="to-top" data-to-top aria-label="Na vrh strani">
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 5l8 8h-5v6H9v-6H4l8-8z"/></svg>
+    </a>
 
-            </div>
-
-        </div>
-    </div>
-
-</main>
-
-{# Footer #}
-{% include '_layouts/site-footer' %}
-
-{# Modals #}
-{% include '_layouts/site-modals' %}
-
-<div class="scroll-up">
-    <a href="#"><i class="fa fa-angle-up"></i></a>
-</div>
-
-{# Main scripts #}
-<script type="text/javascript" src="{{ '/assets/js/body.js?rev=' ~ revision }}" async></script>
-
+    <script src="{{ '/assets/js/site.js?rev=' ~ revision }}" defer></script>
 </body>
 </html>
-

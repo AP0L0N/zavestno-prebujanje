@@ -1,69 +1,45 @@
-<!-- Footer -->
-<footer class="page-footer font-small blue pt-4">
-
-    <!-- Footer Links -->
-    <div class="container text-center text-md-left">
-
-        <!-- Grid row -->
-        <div class="row">
-
-            <!-- Grid column -->
-            <div class="col-md-8 mt-md-0 mt-3">
-
-                <!-- Content -->
-                <h5 class="text-uppercase">{{ globalInfo.pageInfo.naslov }}</h5>
-                <p>{{ globalInfo.pageInfo.besedilo }}</p>
-
-            </div>
-            <!-- Grid column -->
-
-            <hr class="clearfix w-100 d-md-none pb-3">
-
-            <!-- Grid column -->
-            <div class="col-md-1 mb-md-0 mb-3">
-            </div>
-            <!-- Grid column -->
-
-            <!-- Grid column -->
-            <div class="col-md-3 mb-md-0 mb-3">
-
-                <!-- Links -->
-                <h5 class="text-uppercase">Povezave</h5>
-
-                <ul class="list-unstyled">
-
-                    {% for node in craft.navigation.nodes().handle('leftNav').level(1).all() %}
-                        <li class="mb-2">
-
-                            <a href="{{ node.url }}" class="text-info">{{ node.title }}</a>
-
-                        </li>
-                    {% endfor %}
-
-                    {% for node in craft.navigation.nodes().handle('rightNav').level(1).all() %}
-                        <li class="mb-2">
-
-                            <a href="{{ node.url }}" class="text-info">{{ node.title }}</a>
-
-                        </li>
-                    {% endfor %}
-
-                </ul>
-
-            </div>
-            <!-- Grid column -->
-
+<footer class="site-footer">
+    <div class="container footer-grid">
+        <div>
+            <a class="footer-brand" href="{{ siteUrl }}">
+                <img src="/assets/images/logo.png" width="42" height="42" alt="">
+                <strong>Zavestno prebujanje</strong>
+            </a>
+            {% if globalInfo is defined and globalInfo.pageInfo %}
+                <div>{{ globalInfo.pageInfo.besedilo|striptags|slice(0, 280) }}{% if globalInfo.pageInfo.besedilo|striptags|length > 280 %}…{% endif %}</div>
+            {% endif %}
         </div>
-        <!-- Grid row -->
 
+        <div>
+            <h3>Povezave</h3>
+            <ul class="footer-links">
+                <li><a href="{{ siteUrl }}">Domov</a></li>
+                <li><a href="{{ url('horoskop') }}">Horoskop</a></li>
+                <li><a href="{{ url('prispevki') }}">Članki</a></li>
+                <li><a href="{{ url('about') }}">O meni</a></li>
+                <li><a href="{{ url('contact') }}">Kontakt</a></li>
+                <li><a href="{{ url('feed.xml') }}">RSS</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>Kontakt</h3>
+            <ul class="footer-links">
+                {% if mainContact is defined and mainContact.contactInfo and mainContact.contactInfo.email %}
+                    <li><a href="mailto:{{ mainContact.contactInfo.email }}">{{ mainContact.contactInfo.email }}</a></li>
+                {% endif %}
+                {% if mainContact is defined and mainContact.contactInfo and mainContact.contactInfo.phoneNumber %}
+                    <li><a href="tel:{{ mainContact.contactInfo.phoneNumber|replace({' ': ''}) }}">{{ mainContact.contactInfo.phoneNumber }}</a></li>
+                {% endif %}
+                {% if mainAuthor is defined and mainAuthor.authorInfo and mainAuthor.authorInfo.facebook %}
+                    <li><a href="{{ mainAuthor.authorInfo.facebook }}" rel="noopener noreferrer" target="_blank">Facebook</a></li>
+                {% endif %}
+            </ul>
+        </div>
     </div>
-    <!-- Footer Links -->
 
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">© {{ now|date("Y") }} Vse pravice pridržane:
-        <a href="http://zavestnoprebujanje.si" class="text-info"> zavestnoprebujanje.si</a>
+    <div class="container footer-copy">
+        <span>© {{ now|date('Y') }} Zavestno prebujanje. Vse pravice pridržane.</span>
+        <a href="https://zavestnoprebujanje.si">zavestnoprebujanje.si</a>
     </div>
-    <!-- Copyright -->
-
 </footer>
-<!-- Footer -->

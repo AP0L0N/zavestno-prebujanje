@@ -1,0 +1,15 @@
+{% extends '_layouts/site-content' %}
+
+{% block content %}
+    <div class="container">
+        <section class="error-page">
+            <p class="section-kicker">Napaka 404</p>
+            <h1>Strani ni mogoče najti</h1>
+            <p>Morda se je naslov spremenil ali pa stran ne obstaja več.</p>
+            <div class="hero-actions" style="justify-content: center;">
+                <a class="btn btn-gold" href="{{ siteUrl }}">Na domov</a>
+                <a class="btn btn-outline" href="{{ url('horoskop') }}">Horoskop</a>
+            </div>
+        </section>
+    </div>
+{% endblock %}

@@ -1,0 +1,423 @@
+field: e95ac300-682f-405d-8cc8-c9dc76f99104
+fieldLayouts:
+  46500782-bc17-48be-a832-3d66c13b20db:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 08fa86ed-76aa-40c5-8e29-99b6a19f0c60
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 2b35b42a-38e4-45d4-8cc7-b3b341f231ec
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 7a4ac9c9-0dc0-4d2a-997d-a0846a5a555f
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: cc031140-0287-4247-976a-cda688db90f0
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 8bdbe1ff-c3aa-4326-a896-b5463aff67fd
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 1622c2f0-8103-4d09-be14-c712948ab874
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 9fb83bb2-65b2-488a-8191-0abc8ad08272
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 562a6218-3046-4954-952c-d651593a4e23
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 7ecd26a8-645d-434e-a3e6-f705006ab7be
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 67e85882-8795-4c78-bbfe-4c43f2e6f97c
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 7302172b-7c7c-43e8-b61c-4e88d112bdac
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: a003dfd6-5244-4e27-b349-f04e67320506
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: c1a80c62-1e02-4a1b-8644-874a89a1d355
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: c818ab2f-7ea7-4971-a775-558e79123920
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: fa97e279-fead-45a4-b654-16691db4ab1c
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  2b35b42a-38e4-45d4-8cc7-b3b341f231ec:
+    contentColumnType: datetime
+    fieldGroup: null
+    handle: datumDo
+    instructions: ''
+    name: 'Datum do'
+    searchable: false
+    settings:
+      max: null
+      min: null
+      minuteIncrement: '30'
+      showDate: true
+      showTime: false
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Date
+  7a4ac9c9-0dc0-4d2a-997d-a0846a5a555f:
+    contentColumnType: text
+    fieldGroup: null
+    handle: opis
+    instructions: ''
+    name: 'Opis tedenskega koroskopa'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: '1'
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  7ecd26a8-645d-434e-a3e6-f705006ab7be:
+    contentColumnType: text
+    fieldGroup: null
+    handle: opisDevica
+    instructions: ''
+    name: Devica
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: '1'
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  8bdbe1ff-c3aa-4326-a896-b5463aff67fd:
+    contentColumnType: text
+    fieldGroup: null
+    handle: opisBik
+    instructions: ''
+    name: Bik
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: '1'
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  08fa86ed-76aa-40c5-8e29-99b6a19f0c60:
+    contentColumnType: datetime
+    fieldGroup: null
+    handle: datumOd
+    instructions: ''
+    name: 'Datum od'
+    searchable: false
+    settings:
+      max: null
+      min: null
+      minuteIncrement: '30'
+      showDate: true
+      showTime: false
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Date
+  9fb83bb2-65b2-488a-8191-0abc8ad08272:
+    contentColumnType: text
+    fieldGroup: null
+    handle: opisRak
+    instructions: ''
+    name: Rak
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: '1'
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  67e85882-8795-4c78-bbfe-4c43f2e6f97c:
+    contentColumnType: text
+    fieldGroup: null
+    handle: opisTehtnica
+    instructions: ''
+    name: Tehtnica
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: '1'
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  562a6218-3046-4954-952c-d651593a4e23:
+    contentColumnType: text
+    fieldGroup: null
+    handle: opisLev
+    instructions: ''
+    name: Lev
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: '1'
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  1622c2f0-8103-4d09-be14-c712948ab874:
+    contentColumnType: text
+    fieldGroup: null
+    handle: opisDvojcka
+    instructions: ''
+    name: Dvojčka
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: '1'
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  7302172b-7c7c-43e8-b61c-4e88d112bdac:
+    contentColumnType: text
+    fieldGroup: null
+    handle: opisSkorpijon
+    instructions: ''
+    name: Škorpijon
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: '1'
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  a003dfd6-5244-4e27-b349-f04e67320506:
+    contentColumnType: text
+    fieldGroup: null
+    handle: opisStrelec
+    instructions: ''
+    name: Strelec
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: '1'
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  c1a80c62-1e02-4a1b-8644-874a89a1d355:
+    contentColumnType: text
+    fieldGroup: null
+    handle: opisKozorog
+    instructions: ''
+    name: Kozorog
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: '1'
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  c818ab2f-7ea7-4971-a775-558e79123920:
+    contentColumnType: text
+    fieldGroup: null
+    handle: opisVodnar
+    instructions: ''
+    name: Vodnar
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: '1'
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  cc031140-0287-4247-976a-cda688db90f0:
+    contentColumnType: text
+    fieldGroup: null
+    handle: opisOven
+    instructions: ''
+    name: Oven
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: '1'
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  fa97e279-fead-45a4-b654-16691db4ab1c:
+    contentColumnType: text
+    fieldGroup: null
+    handle: opisRibi
+    instructions: ''
+    name: Ribi
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: '1'
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText

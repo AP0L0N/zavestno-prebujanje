@@ -1,0 +1,7 @@
+handle: seznamHoroskopov
+hasTitleField: false
+name: 'Seznam horoskopov'
+section: 4842cefa-c726-4565-b6f2-49d6351fe0eb
+sortOrder: 1
+titleFormat: '{section.name|raw}'
+titleLabel: null

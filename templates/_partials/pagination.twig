@@ -1,0 +1,21 @@
+{% if pageInfo is defined and pageInfo.totalPages > 1 %}
+<nav class="pagination" aria-label="Strani">
+    {% if pageInfo.prevUrl %}
+        <a href="{{ pageInfo.prevUrl }}" rel="prev">Nazaj</a>
+    {% endif %}
+
+    {% for pageNum, url in pageInfo.getPrevUrls(2) %}
+        <a href="{{ url }}">{{ pageNum }}</a>
+    {% endfor %}
+
+    <span class="is-current" aria-current="page">{{ pageInfo.currentPage }}</span>
+
+    {% for pageNum, url in pageInfo.getNextUrls(2) %}
+        <a href="{{ url }}">{{ pageNum }}</a>
+    {% endfor %}
+
+    {% if pageInfo.nextUrl %}
+        <a href="{{ pageInfo.nextUrl }}" rel="next">Naprej</a>
+    {% endif %}
+</nav>
+{% endif %}

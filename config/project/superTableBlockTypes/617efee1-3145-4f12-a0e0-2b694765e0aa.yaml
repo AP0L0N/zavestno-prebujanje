@@ -1,0 +1,64 @@
+field: 0935c81a-6697-425c-befe-6db32133cf88
+fieldLayouts:
+  61b33f8c-0d69-4216-8908-4508b1782626:
+    tabs:
+      -
+        fields:
+          0d5b10cb-ae54-4b66-96be-ce03aadc795d:
+            required: false
+            sortOrder: 3
+          87c75157-2b0a-4085-8d55-057d9397f47d:
+            required: false
+            sortOrder: 2
+          ab9764aa-97a8-48e5-8a9f-d0ffd59f1469:
+            required: false
+            sortOrder: 1
+        name: Content
+        sortOrder: 1
+fields:
+  0d5b10cb-ae54-4b66-96be-ce03aadc795d:
+    contentColumnType: string
+    fieldGroup: null
+    handle: email
+    instructions: ''
+    name: Email
+    searchable: false
+    settings:
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Email
+  87c75157-2b0a-4085-8d55-057d9397f47d:
+    contentColumnType: text
+    fieldGroup: null
+    handle: phoneNumber
+    instructions: ''
+    name: 'Phone number'
+    searchable: false
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  ab9764aa-97a8-48e5-8a9f-d0ffd59f1469:
+    contentColumnType: text
+    fieldGroup: null
+    handle: address
+    instructions: ''
+    name: Address
+    searchable: false
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText

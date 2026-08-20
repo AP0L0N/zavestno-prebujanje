@@ -1,22 +1,19 @@
-
 {% if horoskop and horoskop.horoskopInfo %}
-
-    <article class="single-blog">
-
-        <div class="post-content">
-
-            <div class="entry-header text-left text-uppercase">
-                <h2>{{ horoskop.title }}</h2>
-                {% if horoskop.horoskopInfo.opis is not empty %}
-                    <p>
-                        {{ horoskop.horoskopInfo.opis }}
-                    </p>
-                {% endif %}
-
-                <a href="{{ horoskop.url }}">Preberi več <i class="fas fa-angle-right ml-2"></i></a>
-            </div>
+    <article class="list-card">
+        <div class="list-card-media">
+            <a href="{{ horoskop.url }}">
+                <img src="/assets/images/zodiac.jpg" alt="" width="440" height="280" loading="lazy">
+            </a>
         </div>
-
+        <div class="list-card-body">
+            <p class="section-kicker">
+                {% if horoskop.section.handle == 'letniHoroskop' %}Letni horoskop{% else %}Tedenski horoskop{% endif %}
+            </p>
+            <h2><a href="{{ horoskop.url }}">{{ horoskop.title }}</a></h2>
+            {% if horoskop.horoskopInfo.opis %}
+                <p>{{ horoskop.horoskopInfo.opis }}</p>
+            {% endif %}
+            <a class="btn btn-outline" href="{{ horoskop.url }}">Preberite horoskop</a>
+        </div>
     </article>
-
 {% endif %}

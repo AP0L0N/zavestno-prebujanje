@@ -1,0 +1,102 @@
+{% import '_macros/ui' as ui %}
+{% set zodiacSigns = [
+  { id: 'oven', name: 'Oven', field: 'opisOven', image: 'h-oven.png', dates: '21. 3. – 19. 4.' },
+  { id: 'bik', name: 'Bik', field: 'opisBik', image: 'h-bik.png', dates: '20. 4. – 20. 5.' },
+  { id: 'dvojcka', name: 'Dvojčka', field: 'opisDvojcka', image: 'h-dvojcka.png', dates: '21. 5. – 20. 6.' },
+  { id: 'rak', name: 'Rak', field: 'opisRak', image: 'h-rak.png', dates: '21. 6. – 22. 7.' },
+  { id: 'lev', name: 'Lev', field: 'opisLev', image: 'h-lev.png', dates: '23. 7. – 22. 8.' },
+  { id: 'devica', name: 'Devica', field: 'opisDevica', image: 'h-devica.png', dates: '23. 8. – 22. 9.' },
+  { id: 'tehtnica', name: 'Tehtnica', field: 'opisTehtnica', image: 'h-tehtnica.png', dates: '23. 9. – 22. 10.' },
+  { id: 'skorpijon', name: 'Škorpijon', field: 'opisSkorpijon', image: 'h-skorpijon.png', dates: '23. 10. – 21. 11.' },
+  { id: 'strelec', name: 'Strelec', field: 'opisStrelec', image: 'h-strelec.png', dates: '22. 11. – 21. 12.' },
+  { id: 'kozorog', name: 'Kozorog', field: 'opisKozorog', image: 'h-kozorog.png', dates: '22. 12. – 19. 1.' },
+  { id: 'vodnar', name: 'Vodnar', field: 'opisVodnar', image: 'h-vodnar.png', dates: '20. 1. – 18. 2.' },
+  { id: 'ribi', name: 'Ribi', field: 'opisRibi', image: 'h-ribi.png', dates: '19. 2. – 20. 3.' }
+] %}
+
+{% set latestHoroskop = craft.entries().section('horoskop').orderBy('postDate desc').one() %}
+{% set latestYearly = craft.entries().section('letniHoroskop').orderBy('postDate desc').one() %}
+{% set latestPosts = craft.entries().section('prispevki').orderBy('postDate desc').limit(6).all() %}
+{% set authorImage = null %}
+{% if mainAuthor is defined and mainAuthor.authorInfo is not empty and mainAuthor.authorInfo.profilePicture %}
+  {% set authorImage = mainAuthor.authorInfo.profilePicture.one() %}
+{% endif %}
+
+<section class="hero">
+    <div class="container hero-grid">
+        <div>
+            <p class="eyebrow">Društvo za osebno rast</p>
+            <h1>Zavestno prebujanje</h1>
+            <p class="hero-lead">Astrologija, ki prebuja zavest. Tedenski horoskopi in zapisi astrologinje Špele Plemelj o gibanju planetov, osebni rasti in poti k sebi.</p>
+            <div class="hero-actions">
+                {% if latestHoroskop %}
+                    <a class="btn btn-gold" href="{{ latestHoroskop.url }}">Tedenski horoskop {{ ui.icon('arrow') }}</a>
+                {% endif %}
+                <a class="btn btn-ghost" href="{{ url('prispevki') }}">Članki</a>
+            </div>
+        </div>
+
+        {% if latestHoroskop %}
+            <article class="hero-card">
+                <p class="eyebrow">Aktualno</p>
+                <h2>{{ latestHoroskop.title }}</h2>
+                <p>{{ latestHoroskop.horoskopInfo.opis ?? 'Tedenski horoskop astrologinje Špele Plemelj za vsa znamenja.' }}</p>
+                <div class="hero-signs" aria-hidden="true">
+                    {% for sign in zodiacSigns %}
+                        <span class="sign-chip">
+                            <img src="/assets/images/{{ sign.image }}" alt="" width="36" height="36">
+                        </span>
+                    {% endfor %}
+                </div>
+                <a class="btn btn-teal" href="{{ latestHoroskop.url }}">Preberite horoskop</a>
+            </article>
+        {% endif %}
+    </div>
+</section>
+
+<div class="container">
+    {% if latestPosts|length %}
+        <section class="section" aria-labelledby="clanki-title">
+            <div class="section-head">
+                <div>
+                    <p class="section-kicker">Zapisi</p>
+                    <h2 id="clanki-title">Najnovejši članki</h2>
+                </div>
+                <a class="btn btn-outline" href="{{ url('prispevki') }}">Vsi članki</a>
+            </div>
+
+            <div class="card-grid">
+                {% for blog in latestPosts %}
+                    {% include '_fields/_blogInfoThumbnail2' %}
+                {% endfor %}
+            </div>
+        </section>
+    {% endif %}
+
+    <section class="about-band" aria-labelledby="about-title">
+        {% if authorImage %}
+            {{ ui.assetImage(authorImage, 'Špela Plemelj', '', 440, 440, false) }}
+        {% else %}
+            <img src="/assets/images/spela.jpg" alt="Špela Plemelj" width="220" height="220">
+        {% endif %}
+        <div>
+            <p class="section-kicker">Astrologinja</p>
+            <h2 id="about-title">{{ mainAuthor is defined and mainAuthor.authorInfo ? mainAuthor.authorInfo.authorName : 'Špela Plemelj' }}</h2>
+            {% if mainAuthor is defined and mainAuthor.authorInfo and mainAuthor.authorInfo.description %}
+                <p>{{ mainAuthor.authorInfo.description|striptags|slice(0, 320) }}{% if mainAuthor.authorInfo.description|striptags|length > 320 %}…{% endif %}</p>
+            {% endif %}
+            <a class="btn btn-gold" href="{{ url('about') }}">Več o meni</a>
+        </div>
+    </section>
+
+    {% if latestYearly %}
+        <section class="section">
+            <article class="page-hero">
+                <p class="section-kicker">Letni pregled</p>
+                <h2>{{ latestYearly.title }}</h2>
+                <p>{{ latestYearly.horoskopInfo.opis ?? 'Letni horoskop za vsa znamenja.' }}</p>
+                <a class="btn btn-teal" href="{{ latestYearly.url }}">Preberite letni horoskop</a>
+            </article>
+        </section>
+    {% endif %}
+</div>

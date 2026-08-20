@@ -26,13 +26,29 @@ return [
         // Whether to save the project config out to config/project.yaml
         // (see https://docs.craftcms.com/v3/project-config.html)
         'useProjectConfigFile' => true,
+
+        'aliases' => [
+            '@webroot' => dirname(__DIR__) . '/web',
+        ],
     ],
 
     // Dev environment settings
-    'dev' => [
-        // Dev Mode (see https://craftcms.com/guides/what-dev-mode-does)
-        'devMode' => true,
-    ],
+    'dev' => (static function () {
+        $siteUrl = rtrim(getenv('PRIMARY_SITE_URL') ?: getenv('DDEV_PRIMARY_URL') ?: '', '/');
+        $config = [
+            'devMode' => true,
+            'allowAdminChanges' => true,
+            'enableTemplateCaching' => false,
+            'aliases' => [
+                '@webroot' => dirname(__DIR__) . '/web',
+            ],
+        ];
+        if ($siteUrl !== '') {
+            $config['siteUrl'] = $siteUrl;
+            $config['aliases']['@web'] = $siteUrl;
+        }
+        return $config;
+    })(),
 
     // Staging environment settings
     'staging' => [

@@ -1,0 +1,16 @@
+contentColumnType: text
+fieldGroup: 86398b5a-bde2-45ba-b078-2c2569c3bb0d
+handle: listOfLatestBlogs
+instructions: ''
+name: 'List of latest blogs'
+searchable: true
+settings:
+  charLimit: ''
+  code: ''
+  columnType: text
+  initialRows: '4'
+  multiline: ''
+  placeholder: ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

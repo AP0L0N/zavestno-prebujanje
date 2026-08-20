@@ -1,0 +1,83 @@
+field: 768c0010-918e-450a-af65-49a69c0e50b2
+fieldLayouts:
+  0da5b883-e905-4174-8a49-554edde90b1f:
+    tabs:
+      -
+        fields:
+          8c8be8fa-f145-4490-89d2-aa5465825dce:
+            required: true
+            sortOrder: 2
+          ab6079f7-c6a0-4249-be59-c0a427105116:
+            required: false
+            sortOrder: 1
+          d9659cb6-968e-4aea-88a1-3f3078952d43:
+            required: true
+            sortOrder: 3
+        name: Content
+        sortOrder: 1
+fields:
+  8c8be8fa-f145-4490-89d2-aa5465825dce:
+    contentColumnType: text
+    fieldGroup: null
+    handle: naslov
+    instructions: ''
+    name: Naslov
+    searchable: false
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  ab6079f7-c6a0-4249-be59-c0a427105116:
+    contentColumnType: string
+    fieldGroup: null
+    handle: image
+    instructions: ''
+    name: Image
+    searchable: false
+    settings:
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:1371adaa-1b39-43ae-81e9-436941ddf73c'
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      restrictFiles: '1'
+      selectionLabel: ''
+      singleUploadLocationSource: 'volume:1371adaa-1b39-43ae-81e9-436941ddf73c'
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: '1'
+      validateRelatedElements: ''
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  d9659cb6-968e-4aea-88a1-3f3078952d43:
+    contentColumnType: text
+    fieldGroup: null
+    handle: besedilo
+    instructions: ''
+    name: Besedilo
+    searchable: false
+    settings:
+      availableTransforms: '*'
+      availableVolumes: '*'
+      cleanupHtml: true
+      columnType: text
+      purifierConfig: ''
+      purifyHtml: '1'
+      redactorConfig: Standard.json
+      removeEmptyTags: '1'
+      removeInlineStyles: '1'
+      removeNbsp: '1'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field

@@ -1,23 +1,23 @@
 {% extends '_layouts/site-content' %}
 
-{# If you need to exclude a field from the loops, add it's handle to the excludes array #}
-{% set excludes = ['metadataAndSeo'] %}
-
 {% block content %}
+    {% include '_partials/breadcrumbs' with { crumbs: [{ title: 'Članki', url: url('prispevki') }] } %}
 
-    <section class="page" id="{{ entry.type.handle }}">
+    <header class="page-hero">
+        <p class="section-kicker">Zapisi</p>
+        <h1>Članki</h1>
+        <p>Astrološki zapisi o gibanju planetov, retrogradnih obdobjih in zavestnem prebujanju.</p>
+    </header>
 
-        <div class="archive-header text-center">
-            <div class="archive-title"><span class="archive-name">{{ "Seznam prispevkov" | t }}</span>
-            </div>
-        </div>
+    {% paginate craft.entries().section('prispevki').orderBy('postDate desc').limit(9) as pageInfo, pageEntries %}
 
-        {% for index, blog in craft.entries().section("prispevki").orderBy("postDate desc").all() %}
-
-            {% include "_fields/_blogInfoThumbnail2" %}
-
+    <div class="card-grid">
+        {% for blog in pageEntries %}
+            {% include '_fields/_blogInfoThumbnail2' %}
+        {% else %}
+            <p class="empty-state">Člankov trenutno ni.</p>
         {% endfor %}
+    </div>
 
-    </section>
-
+    {% include '_partials/pagination' %}
 {% endblock %}

@@ -1,0 +1,161 @@
+field: 59021a1a-cfde-47f2-8ccd-2f87d668d843
+fieldLayouts:
+  44711ee0-8635-41ba-b4ee-3ea33c2f0a7d:
+    tabs:
+      -
+        fields:
+          03e3df56-8da1-4031-ab73-03e1f0b0d08e:
+            required: true
+            sortOrder: 3
+          80587f25-f504-404d-9786-14f96adc2ccc:
+            required: false
+            sortOrder: 7
+          652137a5-097d-4607-af13-7052b797b14d:
+            required: false
+            sortOrder: 5
+          7551104a-4c60-465f-8ecb-6beb74a16105:
+            required: true
+            sortOrder: 2
+          b500d033-7110-473f-a979-9973458a980a:
+            required: true
+            sortOrder: 1
+          be50ccd2-9ba7-4fec-a107-01607fbb252c:
+            required: true
+            sortOrder: 4
+          ec6468dc-01f8-4387-858f-fbbb08bc6ce6:
+            required: false
+            sortOrder: 6
+        name: Content
+        sortOrder: 1
+fields:
+  03e3df56-8da1-4031-ab73-03e1f0b0d08e:
+    contentColumnType: text
+    fieldGroup: null
+    handle: authorTitle
+    instructions: ''
+    name: 'Author title'
+    searchable: false
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  80587f25-f504-404d-9786-14f96adc2ccc:
+    contentColumnType: string(255)
+    fieldGroup: null
+    handle: twitter
+    instructions: ''
+    name: Twitter
+    searchable: false
+    settings:
+      maxLength: '255'
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Url
+  652137a5-097d-4607-af13-7052b797b14d:
+    contentColumnType: string
+    fieldGroup: null
+    handle: images
+    instructions: ''
+    name: Images
+    searchable: false
+    settings:
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:1371adaa-1b39-43ae-81e9-436941ddf73c'
+      defaultUploadLocationSubpath: ''
+      limit: ''
+      localizeRelations: false
+      restrictFiles: '1'
+      selectionLabel: ''
+      singleUploadLocationSource: 'volume:1371adaa-1b39-43ae-81e9-436941ddf73c'
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: '1'
+      validateRelatedElements: ''
+      viewMode: list
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  7551104a-4c60-465f-8ecb-6beb74a16105:
+    contentColumnType: text
+    fieldGroup: null
+    handle: authorName
+    instructions: ''
+    name: 'Author name'
+    searchable: false
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  b500d033-7110-473f-a979-9973458a980a:
+    contentColumnType: string
+    fieldGroup: null
+    handle: profilePicture
+    instructions: ''
+    name: 'Profile picture'
+    searchable: false
+    settings:
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:1371adaa-1b39-43ae-81e9-436941ddf73c'
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      restrictFiles: '1'
+      selectionLabel: ''
+      singleUploadLocationSource: 'volume:1371adaa-1b39-43ae-81e9-436941ddf73c'
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: '1'
+      validateRelatedElements: ''
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  be50ccd2-9ba7-4fec-a107-01607fbb252c:
+    contentColumnType: text
+    fieldGroup: null
+    handle: description
+    instructions: ''
+    name: Description
+    searchable: false
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: '1'
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  ec6468dc-01f8-4387-858f-fbbb08bc6ce6:
+    contentColumnType: string(255)
+    fieldGroup: null
+    handle: facebook
+    instructions: ''
+    name: Facebook
+    searchable: false
+    settings:
+      maxLength: '255'
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Url

@@ -1,0 +1,32 @@
+{% extends '_layouts/site-content' %}
+
+{% block content %}
+    {% include '_partials/breadcrumbs' with { crumbs: [{ title: 'Kontakt', url: url('contact') }] } %}
+
+    <header class="page-hero">
+        <p class="section-kicker">Povezava</p>
+        <h1>Kontakt</h1>
+        <p>Pišite astrologinji Špeli Plemelj ali društvu Zavestno prebujanje.</p>
+    </header>
+
+    <div class="contact-grid">
+        {% if mainContact.contactInfo.email %}
+            <div class="contact-card">
+                <p class="section-kicker">E-pošta</p>
+                <a href="mailto:{{ mainContact.contactInfo.email }}">{{ mainContact.contactInfo.email }}</a>
+            </div>
+        {% endif %}
+        {% if mainContact.contactInfo.phoneNumber %}
+            <div class="contact-card">
+                <p class="section-kicker">Telefon</p>
+                <a href="tel:{{ mainContact.contactInfo.phoneNumber|replace({' ': ''}) }}">{{ mainContact.contactInfo.phoneNumber }}</a>
+            </div>
+        {% endif %}
+        {% if mainContact.contactInfo.address %}
+            <div class="contact-card">
+                <p class="section-kicker">Naslov</p>
+                <p>{{ mainContact.contactInfo.address|nl2br }}</p>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

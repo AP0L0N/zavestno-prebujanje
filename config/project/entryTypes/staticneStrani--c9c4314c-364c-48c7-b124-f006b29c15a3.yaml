@@ -1,0 +1,21 @@
+fieldLayouts:
+  4a902d50-64f7-49e1-8d94-608d3f9ea616:
+    tabs:
+      -
+        elements:
+          -
+            instructions: null
+            label: Title
+            type: craft\fieldlayoutelements\EntryTitleField
+          -
+            fieldUid: 768c0010-918e-450a-af65-49a69c0e50b2
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+        name: 'Tab 1'
+        sortOrder: 1
+handle: staticneStrani
+hasTitleField: false
+name: 'Statične strani'
+section: eaea2154-279f-49a2-98ca-af90c7f69d2f
+sortOrder: 1
+titleFormat: '{{ pageInfo.naslov }}'

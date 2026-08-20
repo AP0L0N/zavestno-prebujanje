@@ -1,0 +1,142 @@
+field: d034d755-6241-4073-b724-8be3f7beb4a2
+fieldLayouts:
+  b1ac1051-4ab7-413b-9fc5-23b8c3105bcb:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: ec6e08e9-fa26-46c0-b518-5b561e5044e8
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 35cf1948-48c1-41d5-869c-14b496f65742
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 6fb6ff44-6fc1-49b4-87e2-51d8b7396823
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: a1ec9307-c3e2-41af-a3bb-19980ac44693
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  6fb6ff44-6fc1-49b4-87e2-51d8b7396823:
+    contentColumnType: text
+    fieldGroup: null
+    handle: text
+    instructions: ''
+    name: Text
+    searchable: false
+    settings:
+      availableTransforms: '*'
+      availableVolumes: '*'
+      cleanupHtml: true
+      columnType: text
+      purifierConfig: ''
+      purifyHtml: '1'
+      redactorConfig: Standard.json
+      removeEmptyTags: '1'
+      removeInlineStyles: '1'
+      removeNbsp: '1'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
+  35cf1948-48c1-41d5-869c-14b496f65742:
+    contentColumnType: text
+    fieldGroup: null
+    handle: blogTitle
+    instructions: ''
+    name: 'Blog title'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  a1ec9307-c3e2-41af-a3bb-19980ac44693:
+    contentColumnType: string
+    fieldGroup: null
+    handle: tags
+    instructions: ''
+    name: Kategorije
+    searchable: false
+    settings:
+      allowLimit: false
+      allowMultipleSources: false
+      allowSelfRelations: false
+      limit: null
+      localizeRelations: false
+      selectionLabel: ''
+      showSiteMenu: true
+      source: 'taggroup:92090a48-e1cf-46e7-b102-2d5c267dd579'
+      sources: '*'
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Tags
+  ec6e08e9-fa26-46c0-b518-5b561e5044e8:
+    contentColumnType: string
+    fieldGroup: null
+    handle: image
+    instructions: ''
+    name: Image
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:1371adaa-1b39-43ae-81e9-436941ddf73c'
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: ''
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: true
+      singleUploadLocationSource: 'volume:1371adaa-1b39-43ae-81e9-436941ddf73c'
+      singleUploadLocationSubpath: ''
+      source: null
+      sources:
+        - 'volume:1371adaa-1b39-43ae-81e9-436941ddf73c'
+      targetSiteId: null
+      useSingleFolder: false
+      validateRelatedElements: false
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets

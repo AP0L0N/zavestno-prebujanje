@@ -1,0 +1,15 @@
+enableVersioning: true
+handle: oMeni
+name: 'O meni'
+previewTargets:
+  -
+    label: 'Primary entry page'
+    urlFormat: '{url}'
+propagationMethod: all
+siteSettings:
+  b595d07a-02d1-48d2-becf-8d8def260287:
+    enabledByDefault: true
+    hasUrls: true
+    template: _pages/about
+    uriFormat: about
+type: single

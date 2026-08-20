@@ -1,19 +1,4 @@
-
 {% if entry and entry.blogInfo %}
-
     {% set blog = entry %}
-
-    <section class="blog-info">
-
-        <div class="row">
-
-            <div class="col-12">
-
-                {% include "_fields/_blogInfo" %}
-
-            </div>
-        </div>
-
-    </section>
-
+    {% include '_fields/_blogInfo' %}
 {% endif %}

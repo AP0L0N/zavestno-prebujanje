@@ -1,0 +1,14 @@
+{% import '_macros/ui' as ui %}
+{% set shareUrl = shareUrl ?? craft.app.request.absoluteUrl %}
+{% set shareTitle = shareTitle ?? siteName %}
+<div class="share" aria-label="Deli">
+    <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u={{ shareUrl|url_encode }}" target="_blank" rel="noopener noreferrer">
+        {{ ui.icon('facebook') }} Facebook
+    </a>
+    <a class="share-btn" href="https://twitter.com/intent/tweet?url={{ shareUrl|url_encode }}&text={{ shareTitle|url_encode }}" target="_blank" rel="noopener noreferrer">
+        {{ ui.icon('twitter') }} X
+    </a>
+    <button type="button" class="share-btn" data-share="copy" data-share-url="{{ shareUrl }}">
+        {{ ui.icon('copy') }} Kopiraj povezavo
+    </button>
+</div>

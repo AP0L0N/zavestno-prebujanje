@@ -1,0 +1,7 @@
+handle: seznamPrispevkov
+hasTitleField: false
+name: 'Seznam prispevkov'
+section: 158f0345-c5c7-4860-b14f-85a90989d48f
+sortOrder: 1
+titleFormat: '{section.name|raw}'
+titleLabel: null

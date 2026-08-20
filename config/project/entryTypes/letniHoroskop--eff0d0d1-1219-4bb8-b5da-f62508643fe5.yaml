@@ -1,0 +1,29 @@
+fieldLayouts:
+  7ba46d53-8b69-46f9-9857-cde0e810adc4:
+    tabs:
+      -
+        elements:
+          -
+            instructions: null
+            label: Title
+            type: craft\fieldlayoutelements\EntryTitleField
+          -
+            fieldUid: e95ac300-682f-405d-8cc8-c9dc76f99104
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+        name: 'Tab 1'
+        sortOrder: 1
+      -
+        elements:
+          -
+            fieldUid: e3066447-9c56-45d7-8ca9-f245e8578127
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+        name: 'Tab 2'
+        sortOrder: 2
+handle: letniHoroskop
+hasTitleField: false
+name: 'Letni horoskop'
+section: 0e7849c7-a150-4a17-9a4c-3331caa88b0c
+sortOrder: 1
+titleFormat: 'Letni horoskop za leto {{ horoskopInfo.datumOd | date("Y") }}'

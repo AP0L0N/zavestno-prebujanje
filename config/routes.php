@@ -19,5 +19,7 @@
  */
 
 return [
-
+    'sitemaps.xml' => ['template' => 'sitemap'],
+    'sitemap.xml' => ['template' => 'sitemap'],
+    'feed.xml' => ['template' => 'feed'],
 ];

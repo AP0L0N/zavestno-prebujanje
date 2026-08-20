@@ -1,0 +1,13 @@
+fieldLayouts:
+  d6d292a9-3f87-43d3-b1e3-1d2728812acd:
+    tabs:
+      -
+        fields:
+          0935c81a-6697-425c-befe-6db32133cf88:
+            required: false
+            sortOrder: 1
+        name: 'Tab 1'
+        sortOrder: 1
+handle: mainContact
+name: Kontakt
+sortOrder: 2

@@ -1,19 +1,16 @@
+{% import '_macros/ui' as ui %}
 
 {% if blog and blog.blogInfo %}
-
-    <li class="media">
-        {% if blog.blogInfo.image %}
-            <div class="media-left">
-                <a href="{{ blog.url }}" class="popular-img">
-                    <img style="max-width: 70px;" src="{{ blog.blogInfo.image.one().url }}" alt="Slika {{ blog.blogInfo.blogTitle }}">
-                </a>
-            </div>
-        {% endif %}
-
-        <div class="latest-post-content">
-            <h2 class="text-uppercase"><a href="{{ blog.url }}">{{ blog.blogInfo.blogTitle }}</a></h2>
-            <p>Špela Plemelj, {{ blog.postDate | date("j.n.Y") }}</p>
+    {% set image = blog.blogInfo.image.one() ?? null %}
+    <li class="sidebar-post">
+        <a href="{{ blog.url }}">
+            {% if image %}
+                {{ ui.assetImage(image, '', '', 128, 128) }}
+            {% endif %}
+        </a>
+        <div>
+            <h3><a href="{{ blog.url }}">{{ blog.blogInfo.blogTitle }}</a></h3>
+            <p class="meta"><time datetime="{{ blog.postDate|date('c') }}">{{ blog.postDate|date('j. n. Y') }}</time></p>
         </div>
     </li>
-
 {% endif %}

@@ -1,0 +1,75 @@
+dateModified: 1787255221
+email:
+  fromEmail: poje.tilen@gmail.com
+  fromName: 'Zavestno prebujanje'
+  transportType: craft\mail\transportadapters\Sendmail
+graphql:
+  publicToken:
+    enabled: false
+    expiryDate: null
+meta:
+  __names__:
+    0dc7a820-2a46-4ee4-a7e6-2f49f6a33e13: 'Navigacija desno' # Navigacija desno
+    66a9d675-b23d-467a-b0a2-a47b688573f5: 'Navigacija levo' # Navigacija levo
+    96c103bf-b272-419b-ac2a-d9178a5ca852: 'Opis strani' # Opis strani
+    ac308fbe-1518-4821-a65d-10af56a498a1: Kontakt # Kontakt
+    f0acafcf-71de-4de0-b542-c502c5812349: 'Glavna urednica' # Glavna urednica
+plugins:
+  expanded-singles:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  redactor:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.3.0
+  seo:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.2.0
+    settings:
+      description: ''
+      facebookAppId: '416292889014664'
+      metaTemplate: _layouts/site-seo.twig
+      robots:
+        - ''
+        - ''
+        - ''
+        - ''
+        - ''
+        - ''
+      robotsTxt: "{# Sitemap URL #}\nSitemap: {{ url(seo.sitemapName ~ '.xml') }}\n\n{# Disallows #}\n{% if craft.app.config.env != 'production' %}\n\n{# Disallow access to everything when NOT in production #}\nUser-agent: *\nDisallow: /\n\n{% else %}\n\n{# Disallow access to cpresources/ when live #}\nUser-agent: *\nDisallow: /cpresources/\n\n{% endif %}"
+      sitemapLimit: '1000'
+      sitemapName: sitemap
+      socialImage: ''
+      title:
+        -
+          key: '1'
+          locked: '0'
+          template: '{title}'
+        -
+          key: '2'
+          locked: '1'
+          template: ' - {{ siteName }}'
+      titleSuffix: null
+      twitterHandle: ''
+  sitemap:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.2
+  super-table:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.2.1
+system:
+  edition: solo
+  live: true
+  name: 'Zavestno prebujanje'
+  schemaVersion: 3.8.0.1
+  timeZone: Europe/Ljubljana
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: ''
+  photoVolumeUid: null
+  requireEmailVerification: true

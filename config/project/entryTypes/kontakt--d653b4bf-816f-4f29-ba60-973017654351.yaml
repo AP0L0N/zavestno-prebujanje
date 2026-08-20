@@ -1,0 +1,7 @@
+handle: kontakt
+hasTitleField: false
+name: Kontakt
+section: c1c6c18f-03e4-49ed-bce1-2caebbe8d93c
+sortOrder: 1
+titleFormat: '{section.name|raw}'
+titleLabel: null

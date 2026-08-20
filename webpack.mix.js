@@ -34,3 +34,6 @@ mix.styles([
     'assets/build/theme.css'
 
 ], 'web/assets/css/theme.css');
+
+mix.copy('assets/css/site.css', 'web/assets/css/site.css');
+mix.copy('assets/js/site.js', 'web/assets/js/site.js');

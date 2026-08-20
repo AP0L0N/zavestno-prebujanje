@@ -1,0 +1,124 @@
+contentColumnType: string
+fieldGroup: 26f48b80-b971-4535-8bc5-e5add1370b09
+handle: horoskopInfo
+instructions: ''
+name: 'Horoskop Info'
+searchable: true
+settings:
+  columns:
+    __assoc__:
+      -
+        - 9
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 11
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 15
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 22
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 17
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 10
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 18
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 12
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 16
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 13
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 14
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 19
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 20
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 21
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 23
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+  contentTable: '{{%stc_horoskopinfo}}'
+  fieldLayout: matrix
+  maxRows: ''
+  minRows: ''
+  propagationMethod: all
+  selectionLabel: ''
+  staticField: '1'
+translationKeyFormat: null
+translationMethod: site
+type: verbb\supertable\fields\SuperTableField

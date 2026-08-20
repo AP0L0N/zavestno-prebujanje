@@ -1,39 +1,31 @@
 {% extends '_layouts/site-content' %}
 
-{# If you need to exclude a field from the loops, add it's handle to the excludes array #}
-{% set excludes = ['metadataAndSeo'] %}
-
 {% block content %}
+    {% include '_partials/breadcrumbs' with { crumbs: [{ title: 'Horoskop', url: url('horoskop') }] } %}
 
-    <section class="page" id="{{ entry.type.handle }}">
+    <header class="page-hero">
+        <p class="section-kicker">Astrologija</p>
+        <h1>Horoskop</h1>
+        <p>Tedenski in letni horoskop astrologinje Špele Plemelj za vsa znamenja.</p>
+    </header>
 
+    {% paginate craft.entries().section('horoskop').orderBy('postDate desc').limit(10) as pageInfo, pageEntries %}
 
-        <div class="mb-4">
-            <h1></h1>
-        </div>
+    <h2 class="section-kicker" style="margin-bottom: 1rem;">Tedenski horoskop</h2>
 
-        <div class="archive-header text-center">
-            <div class="archive-title"><span class="archive-name">{{ "Tedenski horoskop" | t }}</span>
-            </div>
-        </div>
+    {% for horoskop in pageEntries %}
+        {% include '_fields/_horoskopInfoThumbnail' %}
+    {% else %}
+        <p class="empty-state">Horoskopi bodo kmalu na voljo.</p>
+    {% endfor %}
 
-        {% for index, horoskop in craft.entries().section("horoskop").orderBy("postDate desc").all() %}
+    {% include '_partials/pagination' %}
 
-            {% include "_fields/_horoskopInfoThumbnail" %}
-
+    {% set yearly = craft.entries().section('letniHoroskop').orderBy('postDate desc').limit(6).all() %}
+    {% if yearly|length %}
+        <h2 class="section-kicker" style="margin: 2rem 0 1rem;">Letni horoskop</h2>
+        {% for horoskop in yearly %}
+            {% include '_fields/_horoskopInfoThumbnail' %}
         {% endfor %}
-
-        <div class="archive-header text-center">
-            <div class="archive-title"><span class="archive-name">{{ "Letni horoskop" | t }}</span>
-            </div>
-        </div>
-
-        {% for index, horoskop in craft.entries().section("letniHoroskop").orderBy("postDate desc").all() %}
-
-            {% include "_fields/_horoskopInfoThumbnail" %}
-
-        {% endfor %}
-
-    </section>
-
+    {% endif %}
 {% endblock %}

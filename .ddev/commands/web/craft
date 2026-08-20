@@ -1,0 +1,7 @@
+#!/bin/bash
+## Description: Run a Craft CMS console command
+## Usage: craft [args]
+## Example: ddev craft project-config/apply
+## Example: ddev craft setup/security-key
+cd /var/www/html || exit 1
+php craft "$@"

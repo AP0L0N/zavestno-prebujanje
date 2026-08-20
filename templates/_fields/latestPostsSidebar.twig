@@ -1,11 +1,8 @@
-<aside class="widget latest-post-widget">
-    <h2 class="widget-title text-uppercase text-center">{{ "Zadnji prispevki" | t }}</h2>
+<aside class="widget">
+    <h2>Zadnji prispevki</h2>
     <ul>
-        {% for index, blog in craft.entries().section("prispevki").orderBy("postDate desc").limit(5).all() %}
-
-            {% include "_fields/_blogInfoSidebar" %}
-
+        {% for blog in craft.entries().section('prispevki').orderBy('postDate desc').limit(5).all() %}
+            {% include '_fields/_blogInfoSidebar' %}
         {% endfor %}
-
     </ul>
 </aside>

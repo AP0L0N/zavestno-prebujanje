@@ -1,76 +1,133 @@
-{# SEO Start #}
-	{# Tip: You can pass the handle of your SEO field - getSeoField('mySeoFieldHandle') #}
-	{% set seo = getSeoField() %}
-	{% if seo is null or seo.title == '' %}
-        {% set seo = craft.seo.custom(siteName, '', false) %}
-    {% endif -%}
+{# SEO — unique titles, descriptions, social cards, locale, canonical #}
+{% set siteTitle = siteName|default('Zavestno prebujanje') %}
+{% set defaultDescription = 'Astrologija, tedenski horoskop in pot zavestnega prebujanja. Piše astrologinja Špela Plemelj.' %}
+{% set defaultImage = url('/assets/images/og-default.jpg') %}
+{% set currentUrl = craft.app.request.absoluteUrl %}
+{% set currentEntry = entry is defined ? entry : null %}
+{% set sectionHandle = currentEntry ? currentEntry.section.handle : '' %}
 
-	{% set locale = craft.app.locale %}
-	{% set locales = craft.app.i18n.siteLocaleIds|without(locale) %}
+{% set pageTitle = siteTitle %}
+{% set pageDescription = defaultDescription %}
+{% set ogType = 'website' %}
+{% set ogImage = defaultImage %}
+{% set ogImageWidth = 1200 %}
+{% set ogImageHeight = 630 %}
+{% set canonical = currentUrl %}
+{% set published = null %}
+{% set modified = null %}
 
-<title>{{ seo.title }}</title>
-<meta name="description" content="{{ seo.description }}" />
+{% if currentEntry %}
+  {% set canonical = currentEntry.url ?: currentUrl %}
+  {% set published = currentEntry.postDate %}
+  {% set modified = currentEntry.dateUpdated %}
 
-{% set fb = seo.social.facebook -%}
-<meta property="fb:app_id" content="{{ fb.handle }}">
-<meta property="og:url" content="{{ craft.app.request.absoluteUrl }}" />
-<meta property="og:type" content="website" />
+  {% if sectionHandle == 'naslovnaStran' %}
+    {% set pageTitle = 'Zavestno prebujanje | Astrologija, horoskop in osebna rast' %}
+    {% set pageDescription = defaultDescription %}
 
-
-{% if entry.blogInfo and entry.blogInfo.image.one() %}
-    <meta property="og:image" content="{{ entry.blogInfo.image.one().url }}" />
-    <meta property="og:image:width" content="{{ entry.blogInfo.image.one().width }}" />
-    <meta property="og:image:height" content="{{ entry.blogInfo.image.one().height }}" />
-    <meta property="og:title" content="{{ entry.blogInfo.blogTitle }}" />
-    <meta property="og:description" content="{{ entry.blogInfo.text | striptags | trim }}" />
-
-{% elseif entry.horoskopInfo %}
-    <meta property="og:image" content="{{ craft.seo.facebookImage(fb.image) }}" />
-    <meta property="og:title" content="{{ entry.horoskopInfo.title }}" />
-    <meta property="og:description" content="{{ entry.horoskopInfo.opis }}" />
-
-{% else %}
-    <meta property="og:image" content="{{ craft.seo.facebookImage(fb.image) }}" />
-    <meta property="og:title" content="{{ fb.title }}" />
-    <meta property="og:description" content="{{ fb.description }}" />
-
-{% endif %}
-
-<meta property="og:site_name" content="{{ siteName }}" />
-<meta property="og:locale" content="{{ locale|replace('-', '_') }}" />
-{% for locale in locales -%}
-    <meta property="og:locale:alternate" content="{{ locale|replace('-', '_') }}" />
-{% endfor %}
-
-	{% set tw = seo.social.twitter -%}
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:site" content="{{ tw.handle }}" />
-<meta name="twitter:url" content="{{ craft.app.request.absoluteUrl }}" />
-
-{% if entry.blogInfo and entry.blogInfo.image.one() %}
-    <meta property="twitter:image" content="{{ entry.blogInfo.image.one().url }}" />
-    <meta name="twitter:title" content="{{ entry.blogInfo.blogTitle }}" />
-    <meta name="twitter:description" content="{{ entry.blogInfo.text | striptags | trim }}" />
-
-{% elseif entry.horoskopInfo and entry.horoskopInfo.image %}
-    <meta property="twitter:image" content="{{ entry.horoskopInfo.image.one().url }}" />
-    <meta name="twitter:title" content="{{ entry.horoskopInfo.title }}" />
-    <meta name="twitter:description" content="{{ entry.horoskopInfo.opis }}" />
-
-{% else %}
-    <meta property="twitter:image" content="{{ craft.seo.twitterImage(tw.image) }}" />
-    <meta name="twitter:title" content="{{ tw.title }}" />
-    <meta name="twitter:description" content="{{ tw.description }}" />
-
-{% endif %}
-
-{% if seo.robots -%}
-    <meta name="robots" content="{{ seo.robots }}" />
-{% endif %}
-	{%- if seo.expiry -%}
-        <meta name="robots" content="unavailable_after: {{ seo.expiry }}" />
+  {% elseif sectionHandle == 'prispevki' and currentEntry.blogInfo %}
+    {% set pageTitle = currentEntry.blogInfo.blogTitle ~ ' | ' ~ siteTitle %}
+    {% set pageDescription = currentEntry.blogInfo.text|striptags|replace({'\n': ' ', '\r': ' '})|trim|slice(0, 155) %}
+    {% set ogType = 'article' %}
+    {% set image = currentEntry.blogInfo.image.one() ?? null %}
+    {% if image %}
+      {% set ogImage = image.url %}
+      {% set ogImageWidth = image.width %}
+      {% set ogImageHeight = image.height %}
     {% endif %}
 
-<link rel="home" href="{{ siteUrl }}" />
-<link rel="canonical" href="{{ seo.canonical }}">
-{# SEO End #}
+  {% elseif sectionHandle in ['horoskop', 'letniHoroskop'] %}
+    {% set pageTitle = currentEntry.title ~ ' | ' ~ siteTitle %}
+    {% set pageDescription = (currentEntry.horoskopInfo.opis ?? defaultDescription)|striptags|trim|slice(0, 155) %}
+    {% if pageDescription is empty %}
+      {% set pageDescription = currentEntry.title ~ ' — tedenski horoskop astrologinje Špele Plemelj za vsa znamenja.' %}
+    {% endif %}
+    {% set ogType = 'article' %}
+
+  {% elseif sectionHandle == 'seznamHoroskopov' %}
+    {% set pageTitle = 'Tedenski horoskop | ' ~ siteTitle %}
+    {% set pageDescription = 'Tedenski in letni horoskop astrologinje Špele Plemelj za vsa znamenja.' %}
+
+  {% elseif sectionHandle == 'seznamPrispevkov' %}
+    {% set pageTitle = 'Članki | ' ~ siteTitle %}
+    {% set pageDescription = 'Članki o astrologiji, retrogradnih planetih in zavestnem prebujanju, ki jih piše Špela Plemelj.' %}
+
+  {% elseif sectionHandle == 'oMeni' %}
+    {% set pageTitle = 'O meni | Špela Plemelj | ' ~ siteTitle %}
+    {% set pageDescription = 'Špela Plemelj, astrologinja in ustanoviteljica društva Zavestno prebujanje.' %}
+    {% set image = null %}
+    {% if mainAuthor is defined and mainAuthor.authorInfo is not empty and mainAuthor.authorInfo.profilePicture %}
+      {% set image = mainAuthor.authorInfo.profilePicture.one() %}
+    {% endif %}
+    {% if image %}
+      {% set ogImage = image.url %}
+      {% set ogImageWidth = image.width %}
+      {% set ogImageHeight = image.height %}
+    {% endif %}
+
+  {% elseif sectionHandle == 'kontakt' %}
+    {% set pageTitle = 'Kontakt | ' ~ siteTitle %}
+    {% set pageDescription = 'Stopite v stik z društvom Zavestno prebujanje in astrologinjo Špelo Plemelj.' %}
+
+  {% elseif currentEntry.pageInfo %}
+    {% set pageTitle = currentEntry.pageInfo.naslov ~ ' | ' ~ siteTitle %}
+    {% set pageDescription = currentEntry.pageInfo.besedilo|striptags|replace({'\n': ' '})|trim|slice(0, 155) %}
+    {% set image = currentEntry.pageInfo.image.one() ?? null %}
+    {% if image %}
+      {% set ogImage = image.url %}
+    {% endif %}
+
+  {% else %}
+    {% set pageTitle = currentEntry.title ~ ' | ' ~ siteTitle %}
+  {% endif %}
+{% elseif craft.app.request.pathInfo == '' or craft.app.request.pathInfo == '/' %}
+  {% set pageTitle = 'Zavestno prebujanje | Astrologija, horoskop in osebna rast' %}
+  {% set pageDescription = defaultDescription %}
+{% else %}
+  {% set pageTitle = 'Stran ni najdena | ' ~ siteTitle %}
+  {% set pageDescription = 'Iskana stran ne obstaja. Vrnite se na Zavestno prebujanje.' %}
+  {% set noindex = true %}
+{% endif %}
+
+{% if craft.app.request.pageNum > 1 %}
+  {% set pageTitle = pageTitle ~ ' — stran ' ~ craft.app.request.pageNum %}
+{% endif %}
+
+<title>{{ pageTitle }}</title>
+<meta name="description" content="{{ pageDescription|e }}">
+<meta name="author" content="Špela Plemelj">
+<meta name="robots" content="{{ noindex is defined and noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large' }}">
+<meta name="theme-color" content="#141c28">
+<link rel="canonical" href="{{ canonical }}">
+<link rel="alternate" hreflang="sl" href="{{ canonical }}">
+<link rel="alternate" hreflang="x-default" href="{{ canonical }}">
+<link rel="home" href="{{ siteUrl }}">
+<link rel="icon" href="{{ url('/assets/images/logo.png') }}" type="image/png">
+<link rel="apple-touch-icon" href="{{ url('/assets/images/logo.png') }}">
+<link rel="alternate" type="application/rss+xml" title="Zavestno prebujanje — RSS" href="{{ url('feed.xml') }}">
+
+<meta property="og:locale" content="sl_SI">
+<meta property="og:site_name" content="{{ siteTitle }}">
+<meta property="og:type" content="{{ ogType }}">
+<meta property="og:url" content="{{ canonical }}">
+<meta property="og:title" content="{{ pageTitle|e }}">
+<meta property="og:description" content="{{ pageDescription|e }}">
+<meta property="og:image" content="{{ ogImage }}">
+<meta property="og:image:width" content="{{ ogImageWidth }}">
+<meta property="og:image:height" content="{{ ogImageHeight }}">
+<meta property="og:image:alt" content="{{ pageTitle|e }}">
+{% if ogType == 'article' and published %}
+  <meta property="article:published_time" content="{{ published|date('c') }}">
+  <meta property="article:modified_time" content="{{ modified|date('c') }}">
+  <meta property="article:author" content="Špela Plemelj">
+  <meta property="article:section" content="{{ sectionHandle == 'prispevki' ? 'Članki' : 'Horoskop' }}">
+{% endif %}
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ pageTitle|e }}">
+<meta name="twitter:description" content="{{ pageDescription|e }}">
+<meta name="twitter:image" content="{{ ogImage }}">
+
+{% if craft.app.request.pageNum > 1 or sectionHandle == '' %}
+  {# keep indexable; paginated archives stay indexed with unique titles #}
+{% endif %}

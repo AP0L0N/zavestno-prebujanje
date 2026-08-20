@@ -1,0 +1,13 @@
+fieldLayouts:
+  93742794-8e5a-4481-b2a8-f411c368c0e7:
+    tabs:
+      -
+        fields:
+          59021a1a-cfde-47f2-8ccd-2f87d668d843:
+            required: false
+            sortOrder: 1
+        name: 'Tab 1'
+        sortOrder: 1
+handle: mainAuthor
+name: 'Glavna urednica'
+sortOrder: 1

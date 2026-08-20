@@ -1,0 +1,28 @@
+{%- header "Content-Type: application/rss+xml; charset=UTF-8" -%}
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Zavestno prebujanje</title>
+        <link>{{ siteUrl }}</link>
+        <description>Astrologija, tedenski horoskop in pot zavestnega prebujanja. Piše astrologinja Špela Plemelj.</description>
+        <language>sl</language>
+        <atom:link href="{{ url('feed.xml') }}" rel="self" type="application/rss+xml"/>
+        {% set items = craft.entries()
+            .section(['horoskop', 'prispevki', 'letniHoroskop'])
+            .orderBy('postDate desc')
+            .limit(30)
+            .all() %}
+        {% for item in items %}
+            {% set title = item.blogInfo.blogTitle ?? item.title %}
+            {% set summary = item.blogInfo.text ?? item.horoskopInfo.opis ?? title %}
+            <item>
+                <title>{{ title|e }}</title>
+                <link>{{ item.url }}</link>
+                <guid isPermaLink="true">{{ item.url }}</guid>
+                <pubDate>{{ item.postDate|date('r') }}</pubDate>
+                <author>{{ (mainContact.contactInfo.email ?? 'info@zavestnoprebujanje.si') ~ ' (' ~ (mainAuthor.authorInfo.authorName ?? 'Špela Plemelj') ~ ')' }}</author>
+                <description>{{ summary|striptags|e }}</description>
+            </item>
+        {% endfor %}
+    </channel>
+</rss>

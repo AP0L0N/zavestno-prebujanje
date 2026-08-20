@@ -1,0 +1,13 @@
+{% if crumbs is defined and crumbs|length %}
+<nav class="breadcrumbs" aria-label="Drobtinice">
+    <a href="{{ siteUrl }}">Domov</a>
+    {% for crumb in crumbs %}
+        <span aria-hidden="true">/</span>
+        {% if loop.last %}
+            <span aria-current="page">{{ crumb.title }}</span>
+        {% else %}
+            <a href="{{ crumb.url }}">{{ crumb.title }}</a>
+        {% endif %}
+    {% endfor %}
+</nav>
+{% endif %}

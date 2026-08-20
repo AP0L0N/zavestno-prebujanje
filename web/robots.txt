@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /cpresources/
+Disallow: /vendor/
+
+Sitemap: https://zavestnoprebujanje.si/sitemaps.xml
+Sitemap: https://zavestnoprebujanje.si/sitemap.xml

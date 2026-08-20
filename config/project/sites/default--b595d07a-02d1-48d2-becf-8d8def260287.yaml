@@ -1,0 +1,8 @@
+baseUrl: '@web'
+handle: default
+hasUrls: true
+language: en-US
+name: 'Zavestno prebujanje'
+primary: true
+siteGroup: c754bd34-b788-4e3c-b0b7-2fc95e2722a2
+sortOrder: 1

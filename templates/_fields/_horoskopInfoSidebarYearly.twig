@@ -1,24 +1,10 @@
-
 {% if horoskop and horoskop.horoskopInfo %}
-
-    <aside class="widget about-me-widget single-blog text-center zodiac-bg">
-        <div class="about-me-content">
-            <div class="about-me-img">
-
-                <h2 class="text-uppercase">{{ horoskop.title }}</h2>
-
-                {% if horoskop.horoskopInfo.opis is not empty %}
-                    <p class="mb-3">
-                        {{ horoskop.horoskopInfo.opis }}
-                    </p>
-                {% endif %}
-
-                <div class="continue-reading text-center text-uppercase">
-                    <a href="{{ horoskop.url }}">{{ "Preberite horoskop" | t }}</a>
-                </div>
-
-            </div>
-        </div>
+    <aside class="widget">
+        <p class="section-kicker">Letni horoskop</p>
+        <h2>{{ horoskop.title }}</h2>
+        {% if horoskop.horoskopInfo.opis %}
+            <p>{{ horoskop.horoskopInfo.opis }}</p>
+        {% endif %}
+        <a class="btn btn-outline" href="{{ horoskop.url }}">Preberite letni horoskop</a>
     </aside>
-
 {% endif %}

@@ -1,0 +1,29 @@
+fieldLayouts:
+  b635262b-b1f9-46b2-80c5-4321f7f08035:
+    tabs:
+      -
+        elements:
+          -
+            instructions: null
+            label: Title
+            type: craft\fieldlayoutelements\EntryTitleField
+          -
+            fieldUid: d034d755-6241-4073-b724-8be3f7beb4a2
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+        name: 'Tab 1'
+        sortOrder: 1
+      -
+        elements:
+          -
+            fieldUid: e3066447-9c56-45d7-8ca9-f245e8578127
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+        name: 'Tab 2'
+        sortOrder: 2
+handle: prispevki
+hasTitleField: false
+name: Prispevki
+section: ce5ef992-178d-41bf-bbb9-70f1c395909d
+sortOrder: 1
+titleFormat: '{{ blogInfo.blogTitle }}'
